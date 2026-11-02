@@ -1,0 +1,737 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Casa Kiwi · Semana 26 oct–1 nov 2026</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=JetBrains+Mono:wght@500;700&family=Public+Sans:wght@400;600;700&display=swap">
+<style>
+/* Layout: columna de lectura de reporte impreso; cada punto = título + gráfica a la izquierda y cifras clave a la derecha, tablas a todo el ancho.
+   Paleta y tipografía tomadas del reporte 12–18 oct (PDF): tinta #141210, naranja #EC5A1C, amarillo #F6BE1F, gris titular #ABABAB, arena #E8E3DC. Tema claro único, como el reporte. */
+:root{
+  --ink:#141210; --muted:#5F5850; --head:#ABABAB; --orange:#EC5A1C; --yellow:#F6BE1F; --sand:#E8E3DC;
+  --line:#E1E1E1; --paper:#FFFFFF; --note:#FDF9EE; --note-line:#F0D77E; --soft:#FAFAFA;
+  --hero-fg:#FFFFFF; --hero-muted:#CFC9C1; --hero-dim:#8F8981;
+  --display:"Archivo","Arial Black","Helvetica Neue",Arial,sans-serif;
+  --body:"Public Sans",-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,"SF Mono",Menlo,Consolas,monospace;
+  color-scheme:light;
+}
+body{background:var(--paper);color:var(--ink);font:15px/1.6 var(--body);margin:0;padding-block:0 56px}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.hero{background:var(--ink);color:var(--hero-fg)}
+.hero .in{max-width:1040px;margin:0 auto;padding-block:56px 52px}
+main{max-width:1040px;margin:44px auto 0;display:flex;flex-direction:column;gap:56px}
+.eyebrow,.tag,.kpi .l,.cell .d,th,.note b,.foot{font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em}
+.eyebrow{font-size:12px;font-weight:700;margin:0 0 14px;color:var(--yellow)}
+h1{font-family:var(--display);font-weight:900;font-size:clamp(34px,6.4vw,64px);line-height:1.02;letter-spacing:-.02em;color:var(--hero-fg);margin:0 0 22px;text-wrap:balance;max-width:16ch}
+h1 em{font-style:normal;color:var(--orange)}
+.lede{color:var(--hero-muted);max-width:68ch;margin:0 0 12px}
+.lede b{color:var(--hero-fg)}
+.src{font-family:var(--mono);font-size:11px;color:var(--hero-dim);margin:0}
+.block-title{font-family:var(--display);font-weight:800;font-size:20px;margin:0 0 4px}
+.block-sub{font-size:13px;color:var(--muted);margin:0 0 12px}
+.kpis.rev{grid-template-columns:repeat(4,minmax(0,1fr))}
+.kpis.rev .kpi:nth-child(5n){border-right:1px solid var(--line)}
+.kpis.rev .kpi:nth-child(4n){border-right:none}
+.kpis.rev .kpi:nth-last-child(-n+5){border-bottom:1px solid var(--line)}
+.kpis.rev .kpi:nth-last-child(-n+4){border-bottom:none}
+.kpis.rev .kpi .v{font-size:22px}
+.def{font-size:11px;line-height:1.45;color:var(--muted)}
+.small{font-size:11.5px;color:var(--muted);line-height:1.4;display:inline-block;min-width:150px}
+.chip{display:inline-block;font-family:var(--mono);font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;padding:2px 8px;border-radius:3px;white-space:nowrap}
+.chip.ok{background:#E3F1E7;color:#1F6B3A}.chip.bad{background:#FCE3D8;color:#A8380C}.chip.mid{background:#FDF1CC;color:#7A5A00}
+section.goal{background:#FBFAF8;border-top-color:var(--orange);padding:28px 20px 24px;margin-inline:-20px}
+.verdict{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--line);background:var(--paper)}
+.verdict>div{padding:18px;border-right:1px solid var(--line);min-width:0}.verdict>div:last-child{border-right:none}
+.verdict .l{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.verdict .v{font-family:var(--display);font-weight:900;font-size:34px;line-height:1.1;margin:8px 0 6px}
+.verdict .v.o{color:var(--orange)}
+.verdict .s{font-size:13px;color:var(--muted);line-height:1.45}
+.analysis{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--ink);padding:18px 20px}
+.analysis h3{margin-bottom:12px}
+.analysis ol{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:10px;max-width:80ch}
+.analysis li{padding-left:4px}
+.analysis li b{color:var(--ink)}
+.next{border-top-color:var(--orange)}
+.kpis{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));border:1px solid var(--line)}
+.kpi{padding:16px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-width:0}
+.kpi:nth-child(5n){border-right:none}.kpi:nth-last-child(-n+5){border-bottom:none}
+.kpi .l{font-size:10.5px;font-weight:700;color:var(--ink)}
+.kpi .v{font-family:var(--mono);font-weight:700;font-size:26px;line-height:1.2;margin:8px 0 4px;font-variant-numeric:tabular-nums}
+.kpi .v.o{color:var(--orange)}
+.kpi .s{font-size:12.5px;color:var(--muted);line-height:1.45}
+section{display:flex;flex-direction:column;gap:20px;border-top:3px solid var(--ink);padding-top:28px;min-width:0}
+.h2row{display:flex;flex-wrap:wrap;align-items:baseline;gap:8px 16px}
+h2{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,36px);letter-spacing:-.015em;margin:0;line-height:1.1}
+h2 .num{color:var(--orange)}
+.tag{font-size:11px;font-weight:700;color:var(--orange)}
+h3{font-family:var(--display);font-weight:800;font-size:18px;margin:0 0 10px}
+.duo{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:28px;align-items:start}
+.duo>*{min-width:0}
+.chart{width:100%;height:300px;font-family:var(--mono);font-size:11px}
+.chart.tall{height:340px}.chart.short{height:240px}
+.chart-title{font-family:var(--body);font-weight:700;font-size:14px;margin:0 0 6px}
+.fallback{display:flex;align-items:center;justify-content:center;height:100%;background:var(--soft);color:var(--muted);font-size:12px;text-align:center;padding:16px}
+.facts{display:flex;flex-direction:column;gap:14px}
+.fact{border-left:4px solid var(--yellow);padding:2px 0 2px 14px}
+.fact.o{border-left-color:var(--orange)}.fact.k{border-left-color:var(--ink)}
+.fact .v{font-family:var(--mono);font-weight:700;font-size:22px;font-variant-numeric:tabular-nums}
+.fact .s{font-size:13px;color:var(--muted);line-height:1.45}
+.strip{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));border:1px solid var(--line)}
+.cell{padding:10px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:2px;min-width:0}
+.cell:last-child{border-right:none}
+.cell .d{font-size:10.5px;font-weight:700}
+.cell .v{font-family:var(--mono);font-weight:700;font-size:18px;color:var(--orange)}
+.cell .s{font-size:11.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:13.5px;font-variant-numeric:tabular-nums}
+th{font-size:10.5px;font-weight:700;color:var(--muted);text-align:left;padding:8px 10px;border-bottom:2px solid var(--ink);white-space:nowrap}
+td{padding:9px 10px;border-bottom:1px solid var(--line);vertical-align:top}
+td.n,th.n{text-align:right;font-family:var(--mono);font-size:13px;white-space:nowrap}
+th.n{font-family:var(--mono)}
+tfoot td{font-weight:700;border-top:2px solid var(--ink);border-bottom:none}
+.note{background:var(--note);border:1px solid var(--note-line);border-radius:4px;padding:14px 16px;font-size:13.5px;color:var(--ink)}
+.note b{display:block;font-size:11px;color:#C9930A;margin-bottom:6px}
+.note p{margin:0 0 6px}.note p:last-child{margin:0}
+.pending{border-left:4px solid var(--orange);padding:6px 0 6px 14px;font-size:13.5px;color:var(--muted)}
+.pending strong{color:var(--ink)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.two>*{min-width:0}
+.foot{font-size:11px;color:var(--muted);border-top:1px solid var(--line);padding-top:14px;line-height:1.7}
+.scen{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border:1px solid var(--line);background:var(--paper)}
+.sc{padding:18px;border-right:1px solid var(--line);min-width:0;border-top:4px solid var(--gray)}.sc:last-child{border-right:none}
+.sc-conservador{border-top-color:var(--orange)}.sc-positivo{border-top-color:var(--ink)}.sc-negativo{border-top-color:#ABABAB}
+.sc .l{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.sc .v{font-family:var(--display);font-weight:900;font-size:34px;line-height:1.1;margin:8px 0 4px}.sc .v.o{color:var(--orange)}
+.sc .s{font-size:12.5px;color:var(--muted)}
+.sc dl{display:grid;grid-template-columns:auto auto;gap:6px 12px;margin:14px 0 10px;font-size:13px}
+.sc dt{color:var(--muted)}.sc dd{margin:0;text-align:right;font-family:var(--mono);font-weight:700;font-variant-numeric:tabular-nums}
+.alert{margin-top:22px;border:1px solid #F3B79C;border-left:4px solid var(--orange);background:#FDF0EA;padding:14px 16px;border-radius:4px;font-size:13.5px}
+.alert b{font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:#A8380C}.alert p{margin:6px 0 0}
+.concl{margin-top:22px;border:1px solid var(--line);border-left:4px solid var(--ink);background:var(--paper);padding:14px 18px}
+.concl>b{font-family:var(--mono);text-transform:uppercase;letter-spacing:.08em;font-size:12px;color:var(--orange)}
+.concl ul{margin:8px 0 0;padding-left:18px;display:flex;flex-direction:column;gap:6px;max-width:85ch;font-size:14px}
+@media (max-width:860px){
+  .scen{grid-template-columns:minmax(0,1fr)}.sc{border-right:none;border-bottom:1px solid var(--line)}.sc:last-child{border-bottom:none}
+  .verdict{grid-template-columns:minmax(0,1fr)}.verdict>div{border-right:none;border-bottom:1px solid var(--line)}.verdict>div:last-child{border-bottom:none}
+  section.goal{margin-inline:-16px;padding-inline:16px}
+  .kpis,.kpis.rev{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi{border-right:1px solid var(--line)!important;border-bottom:1px solid var(--line)!important}
+  .kpi:nth-child(2n){border-right:none!important}.kpi:nth-last-child(-n+2){border-bottom:none!important}
+  .duo,.two{grid-template-columns:minmax(0,1fr)}
+  .strip{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cell{border-bottom:1px solid var(--line)}
+}
+.strip.strip10{grid-template-columns:repeat(5,minmax(0,1fr))}.strip10 .cell{border-bottom:1px solid var(--line)}.strip10 .cell:nth-child(5n){border-right:none}.strip10 .v{font-size:15px}
+@media (max-width:480px){ .strip,.strip.strip10{grid-template-columns:repeat(2,minmax(0,1fr))} .strip10 .cell:nth-child(5n){border-right:1px solid var(--line)} .strip10 .cell:nth-child(2n){border-right:none} .kpi .v{font-size:21px} }
+</style>
+
+<header class="hero gut">
+ <div class="in">
+  <p class="eyebrow">Reporte semanal · Lun 26 oct – Dom 1 nov 2026</p>
+  <h1>Ocupación de la semana: <em>61,6 %</em>, 207 de 336 noches.</h1>
+  <p class="lede">Cifras extraídas de Lobby PMS el 2 de noviembre de 2026 y del reporte de pagos exportado de Lobby (26 oct – 1 nov).</p>
+  <p class="src">Casa Kiwi Hostal · Provenza, Medellín · 48 unidades en venta (50 en Lobby menos Privada 41 y Dorm 11 Cama 1) · Corte 02/11/2026</p>
+ </div>
+</header>
+<main class="gut">
+
+<div class="kpis" aria-label="Resumen">
+  <div class="kpi"><div class="l">Ocupación</div><div class="v o">61,6 %</div><div class="s">207 / 336 noches · base 48</div></div>
+  <div class="kpi"><div class="l">Tarifa prom. (ADR)</div><div class="v">$91.524</div><div class="s">Ingreso Lobby ÷ unidades vendidas</div></div>
+  <div class="kpi"><div class="l">RevPAR</div><div class="v">$56.385</div><div class="s">Ingreso Lobby ÷ 336 noches</div></div>
+  <div class="kpi"><div class="l">Check-ins / outs</div><div class="v">82 / 76</div><div class="s">120 huéspedes entraron · 2 pendientes de llegada</div></div>
+  <div class="kpi"><div class="l">Reservas creadas</div><div class="v">101</div><div class="s">$27,91 M · 76 OTA / 25 directas</div></div>
+  <div class="kpi"><div class="l">Recaudo semana</div><div class="v">$26,51 M</div><div class="s">411 pagos · recepción $22,97 M</div></div>
+  <div class="kpi"><div class="l">Bar (A&amp;B)</div><div class="v">$2,05 M</div><div class="s">192 productos · 105 cortesías</div></div>
+  <div class="kpi"><div class="l">Upgrades (extensiones)</div><div class="v">13</div><div class="s">28 noches · $2,11 M</div></div>
+  <div class="kpi"><div class="l">Cierre octubre</div><div class="v o">58,0 %</div><div class="s">863 / 1.488 noches · $74,64 M</div></div>
+  <div class="kpi"><div class="l">Noviembre en libros</div><div class="v o">21,8 %</div><div class="s">314 / 1.440 noches · $37,20 M</div></div>
+</div>
+
+<div>
+  <h2 class="block-title">Indicadores de revenue de la semana</h2>
+  <p class="block-sub">Debajo de cada cifra, en letra pequeña, qué significa y cómo se calcula.</p>
+  <div class="kpis rev" aria-label="Indicadores de revenue"><div class="kpi"><div class="l">Ingreso alojamiento</div><div class="v">$18,95 M</div><div class="def">Estimado de Lobby para las noches de la semana: unidades vendidas × tarifa de cada día.</div></div><div class="kpi"><div class="l">ADR</div><div class="v">$91.524</div><div class="def">Average Daily Rate, tarifa promedio: ingreso de alojamiento ÷ unidades vendidas (207).</div></div><div class="kpi"><div class="l">RevPAR</div><div class="v">$56.385</div><div class="def">Revenue per Available Room: ingreso de alojamiento ÷ unidades disponibles (336). Junta ocupación y tarifa en un número.</div></div><div class="kpi"><div class="l">TRevPAR</div><div class="v">$63.933</div><div class="def">Total RevPAR: alojamiento + bar + lavandería ($21,48 M) ÷ 336 unidades disponibles.</div></div><div class="kpi"><div class="l">Ocupación dormitorios</div><div class="v">55,7 %</div><div class="def">113 de 203 camas-noche (29 camas en venta × 7).</div></div><div class="kpi"><div class="l">Ocupación privadas</div><div class="v">70,7 %</div><div class="def">94 de 133 habitaciones-noche (19 privadas en venta × 7).</div></div><div class="kpi"><div class="l">ADR dormitorios</div><div class="v">$50.178</div><div class="def">Valor de cada reserva repartido en partes iguales entre sus noches ÷ camas vendidas.</div></div><div class="kpi"><div class="l">ADR privadas</div><div class="v">$119.618</div><div class="def">Igual que el ADR de dormitorios, para habitaciones privadas.</div></div><div class="kpi"><div class="l">Comisión de reservas creadas</div><div class="v">$4,52 M</div><div class="def">Lo que se llevan las OTAs de las 101 reservas creadas: 15,2 % de lo que pagan los huéspedes (ver 3.1).</div></div><div class="kpi"><div class="l">Estancia media (LOS)</div><div class="v">3,26 noches</div><div class="def">Length of Stay: noches promedio de las 82 reservas que hicieron check-in.</div></div><div class="kpi"><div class="l">Anticipación media</div><div class="v">8,8 días</div><div class="def">Lead time: días entre la creación de la reserva y la noche de estadía. Promedio de Lobby ponderado por unidades.</div></div><div class="kpi"><div class="l">Huéspedes por unidad</div><div class="v">1,45</div><div class="def">301 huéspedes-noche ÷ 207 unidades vendidas.</div></div></div>
+  <p class="def" style="margin-top:10px">El ADR por segmento usa el valor de las reservas repartido en partes iguales entre sus noches ($16.914.229 en la semana). Es distinto de la estimación de Lobby ($18.945.477), que aplica la tarifa de cada día. La ocupación por segmento sí coincide exacta con Lobby: 113 camas + 94 privadas = 207.</p>
+</div>
+
+<!-- 1 -->
+<section>
+  <div class="h2row"><h2><span class="num">1</span> Ocupación semanal</h2><span class="tag">Base 48 unidades · 336 noches</span></div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Unidades vendidas por noche, capacidad y tarifa promedio</p>
+      <div class="chart" id="c-occ"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">61,6 %</div><div class="s">Ocupación semanal: 207 unidades vendidas ÷ (48 × 7 = 336).</div></div>
+      <div class="fact"><div class="v">$91.524</div><div class="s">ADR semanal: $18.945.477 de ingreso de alojamiento ÷ 207 unidades.</div></div>
+      <div class="fact k"><div class="v">$56.385</div><div class="s">RevPAR: ingreso de alojamiento ÷ 336 noches disponibles.</div></div>
+      <div class="fact"><div class="v">59,1 %</div><div class="s">La misma semana con las 50 unidades de Lobby. Solo como referencia; no se usa en el reporte.</div></div>
+    </div>
+  </div>
+  <div class="strip"><div class="cell"><span class="d">Lun 26</span><span class="v">39,6 %</span><span class="s">19 / 48 · ADR $75.390</span></div><div class="cell"><span class="d">Mar 27</span><span class="v">35,4 %</span><span class="s">17 / 48 · ADR $84.315</span></div><div class="cell"><span class="d">Mié 28</span><span class="v">45,8 %</span><span class="s">22 / 48 · ADR $94.828</span></div><div class="cell"><span class="d">Jue 29</span><span class="v">75,0 %</span><span class="s">36 / 48 · ADR $86.759</span></div><div class="cell"><span class="d">Vie 30</span><span class="v">85,4 %</span><span class="s">41 / 48 · ADR $97.180</span></div><div class="cell"><span class="d">Sáb 31</span><span class="v">75,0 %</span><span class="s">36 / 48 · ADR $101.412</span></div><div class="cell"><span class="d">Dom 1</span><span class="v">75,0 %</span><span class="s">36 / 48 · ADR $89.860</span></div></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>Semana partida en dos.</b> Lunes a miércoles se quedó en 40 % y jueves a domingo en 78 %: el fin de semana del puente sostuvo la semana.</li></ul></div>
+</section>
+
+<!-- 2 -->
+<section>
+  <div class="h2row"><h2><span class="num">2</span> Flujo de huéspedes</h2><span class="tag">Check-ins y check-outs</span></div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Check-ins vs. check-outs por día (reservas)</p>
+      <div class="chart" id="c-flujo"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">82 check-ins</div><div class="s">120 huéspedes. De ellos, 22 son continuaciones: el huésped ya estaba en el hostal y empezó otra reserva ese día. Llegadas nuevas: 60.</div></div>
+      <div class="fact k"><div class="v">76 check-outs</div><div class="s">Reservas que terminaron en la semana. 22 de ellas siguieron con otra reserva. Salidas físicas: 54.</div></div>
+      <div class="fact"><div class="v">2 pendientes</div><div class="s">Con llegada el 1 nov y sin check-in en Lobby: Elvert Arrieta (Expedia, $92.400) y Juli Garcia (Booking.com, $133.694).</div></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Día</th><th class="n">Check-ins</th><th class="n">Huéspedes</th><th class="n">Continuaciones</th><th class="n">Check-outs</th><th class="n">Siguen en casa</th><th class="n">Pend. llegada</th></tr></thead><tbody><tr><td class="">Lun 26</td><td class="n">8</td><td class="n">12</td><td class="n">3</td><td class="n">17</td><td class="n">3</td><td class="n">0</td></tr><tr><td class="">Mar 27</td><td class="n">10</td><td class="n">12</td><td class="n">4</td><td class="n">12</td><td class="n">4</td><td class="n">0</td></tr><tr><td class="">Mié 28</td><td class="n">14</td><td class="n">20</td><td class="n">3</td><td class="n">9</td><td class="n">3</td><td class="n">0</td></tr><tr><td class="">Jue 29</td><td class="n">17</td><td class="n">22</td><td class="n">0</td><td class="n">3</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="">Vie 30</td><td class="n">18</td><td class="n">26</td><td class="n">8</td><td class="n">13</td><td class="n">8</td><td class="n">0</td></tr><tr><td class="">Sáb 31</td><td class="n">11</td><td class="n">23</td><td class="n">3</td><td class="n">16</td><td class="n">3</td><td class="n">0</td></tr><tr><td class="">Dom 1</td><td class="n">4</td><td class="n">5</td><td class="n">1</td><td class="n">6</td><td class="n">1</td><td class="n">2</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">82</td><td class="n">120</td><td class="n">22</td><td class="n">76</td><td class="n">22</td><td class="n">2</td></tr></tfoot></table></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>Pico jueves–viernes.</b> 35 de los 82 check-ins entraron el jueves y el viernes: son los días que más personal de recepción necesitan.</li></ul></div>
+</section>
+
+<!-- 3 -->
+<section>
+  <div class="h2row"><h2><span class="num">3</span> Pickup de reservas y canales</h2><span class="tag">Creadas del 26 oct al 1 nov</span></div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Reservas nuevas por canal de origen</p>
+      <div class="chart" id="c-pickup"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">101 reservas</div><div class="s">$27.907.104 en valor Lobby · 309 noches.</div></div>
+      <div class="fact k"><div class="v">76 OTA · 25 directo</div><div class="s">OTA: Hostelworld, Booking.com y Expedia. Directo: Recepción, Directo / sin canal, Motor web y Santiago Posada.</div></div>
+      <div class="fact"><div class="v">19 en Recepción</div><div class="s">12 son extensiones de huéspedes en casa (punto 8) y 7 son reservas nuevas. Lobby no tiene un canal "Walk-in": los walk-ins quedan dentro de Recepción.</div></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Canal</th><th class="">Tipo</th><th class="n">Reservas</th><th class="n">%</th><th class="n">Valor Lobby</th><th class="n">Noches</th><th class="n">Llega oct</th><th class="n">Llega nov</th><th class="n">Llega dic</th><th class="n">Llega 2027</th></tr></thead><tbody><tr><td class="">Hostelworld</td><td class="">OTA</td><td class="n">42</td><td class="n">41,6 %</td><td class="n">$5.620.845</td><td class="n">110</td><td class="n">28</td><td class="n">10</td><td class="n">2</td><td class="n">2</td></tr><tr><td class="">Booking.com</td><td class="">OTA</td><td class="n">33</td><td class="n">32,7 %</td><td class="n">$15.136.186</td><td class="n">110</td><td class="n">2</td><td class="n">4</td><td class="n">6</td><td class="n">21</td></tr><tr><td class="">Recepción</td><td class="">Directo</td><td class="n">19</td><td class="n">18,8 %</td><td class="n">$3.564.694</td><td class="n">41</td><td class="n">17</td><td class="n">1</td><td class="n">1</td><td class="n">0</td></tr><tr><td class="">Directo / sin canal</td><td class="">Directo</td><td class="n">3</td><td class="n">3,0 %</td><td class="n">$126.118</td><td class="n">7</td><td class="n">1</td><td class="n">2</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="">Motor web</td><td class="">Directo</td><td class="n">2</td><td class="n">2,0 %</td><td class="n">$1.310.861</td><td class="n">8</td><td class="n">1</td><td class="n">1</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="">Santiago Posada</td><td class="">Directo</td><td class="n">1</td><td class="n">1,0 %</td><td class="n">$2.056.000</td><td class="n">31</td><td class="n">1</td><td class="n">0</td><td class="n">0</td><td class="n">0</td></tr><tr><td class="">Expedia</td><td class="">OTA</td><td class="n">1</td><td class="n">1,0 %</td><td class="n">$92.400</td><td class="n">2</td><td class="n">0</td><td class="n">1</td><td class="n">0</td><td class="n">0</td></tr></tbody><tfoot><tr><td class="">Total</td><td class=""></td><td class="n">101</td><td class="n">100,0 %</td><td class="n">$27.907.104</td><td class="n">309</td><td class="n">50</td><td class="n">19</td><td class="n">9</td><td class="n">23</td></tr></tfoot></table></div>
+  <div class="tbl"><table><thead><tr><th class="">Grupo</th><th class="n">Reservas</th><th class="n">%</th><th class="n">Valor Lobby</th><th class="n">%</th><th class="n">Noches</th></tr></thead><tbody><tr><td class="">OTAs (Hostelworld, Booking, Expedia)</td><td class="n">76</td><td class="n">75,2 %</td><td class="n">$20.849.431</td><td class="n">74,7 %</td><td class="n">222</td></tr><tr><td class="">Directo (Recepción, sin canal, motor web, Santiago Posada)</td><td class="n">25</td><td class="n">24,8 %</td><td class="n">$7.057.673</td><td class="n">25,3 %</td><td class="n">87</td></tr></tbody></table></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>Hostelworld da volumen, Booking.com da valor.</b> Hostelworld trajo el 42 % de las reservas pero el 20 % del valor; Booking.com, el 33 % de las reservas y el 54 % del valor.</li></ul></div>
+</section>
+
+<!-- 3.1 -->
+<section>
+  <div class="h2row"><h2><span class="num">3.1</span> Comisiones por canal</h2><span class="tag">Reservas creadas del 26 oct al 1 nov</span></div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Lo que paga el huésped, dividido en comisión y lo que le queda a Casa Kiwi</p>
+      <div class="chart" id="c-com"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">$4.523.541</div><div class="s">Comisión total de las 101 reservas creadas: 15,2 % de lo que pagan los huéspedes ($29.682.108).</div></div>
+      <div class="fact"><div class="v">20,0 %</div><div class="s">Comisión sobre lo que pagan los huéspedes que reservaron por OTA ($22.624.435).</div></div>
+      <div class="fact k"><div class="v">$25.158.567</div><div class="s">Lo que le queda a Casa Kiwi de estas reservas, después de comisiones.</div></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Canal</th><th class="">Cómo cobra</th><th class="n">Res.</th><th class="n">Noches</th><th class="n">Paga huésped</th><th class="n">Comisión</th><th class="n">%</th><th class="n">Le queda</th><th class="n">Neto/noche</th></tr></thead><tbody><tr><td class="">Hostelworld</td><td class=""><span class="small">Depósito 24 % al reservar; Lobby ya es neto</span></td><td class="n">42</td><td class="n">110</td><td class="n">$7.395.849</td><td class="n">$1.775.004</td><td class="n">24,0 %</td><td class="n">$5.620.845</td><td class="n">$51.099</td></tr><tr><td class="">Booking.com</td><td class=""><span class="small">18 % del valor de Lobby (factura mensual)</span></td><td class="n">33</td><td class="n">110</td><td class="n">$15.136.186</td><td class="n">$2.724.513</td><td class="n">18,0 %</td><td class="n">$12.411.673</td><td class="n">$112.833</td></tr><tr><td class="">Recepción</td><td class=""><span class="small">Sin comisión</span></td><td class="n">19</td><td class="n">41</td><td class="n">$3.564.694</td><td class="n">$0</td><td class="n">0,0 %</td><td class="n">$3.564.694</td><td class="n">$86.944</td></tr><tr><td class="">Directo / sin canal</td><td class=""><span class="small">Sin comisión</span></td><td class="n">3</td><td class="n">7</td><td class="n">$126.118</td><td class="n">$0</td><td class="n">0,0 %</td><td class="n">$126.118</td><td class="n">$18.017</td></tr><tr><td class="">Motor web</td><td class=""><span class="small">Sin comisión (Bold no se descuenta)</span></td><td class="n">2</td><td class="n">8</td><td class="n">$1.310.861</td><td class="n">$0</td><td class="n">0,0 %</td><td class="n">$1.310.861</td><td class="n">$163.858</td></tr><tr><td class="">Santiago Posada</td><td class=""><span class="small">Sin comisión</span></td><td class="n">1</td><td class="n">31</td><td class="n">$2.056.000</td><td class="n">$0</td><td class="n">0,0 %</td><td class="n">$2.056.000</td><td class="n">$66.323</td></tr><tr><td class="">Expedia</td><td class=""><span class="small">26 % del valor de Lobby (regla interna)</span></td><td class="n">1</td><td class="n">2</td><td class="n">$92.400</td><td class="n">$24.024</td><td class="n">26,0 %</td><td class="n">$68.376</td><td class="n">$34.188</td></tr></tbody><tfoot><tr><td class="">Total</td><td class=""></td><td class="n">101</td><td class="n">309</td><td class="n">$29.682.108</td><td class="n">$4.523.541</td><td class="n">15,2 %</td><td class="n">$25.158.567</td><td class="n">$81.419</td></tr></tfoot></table></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>Booking.com pesa más.</b> Genera cerca del 60 % de la comisión de la semana por su mayor valor por reserva.</li><li><b>Hostelworld es la tasa más cara.</b> Cobra 24 %: cada reserva que pasa de Hostelworld al motor web ahorra casi una cuarta parte de su valor.</li></ul></div>
+</section>
+
+<!-- 4 -->
+<section>
+  <div class="h2row"><h2><span class="num">4</span> Recaudo en recepción</h2><span class="tag">Reporte de pagos de Lobby</span></div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Recaudo de recepción por día y concepto</p>
+      <div class="chart" id="c-recdia"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">$22.968.417</div><div class="s">Cobrado en recepción en la semana (86,6 % del recaudo total). Alojamiento: $22.176.417.</div></div>
+      <div class="fact k"><div class="v">$26.510.007</div><div class="s">Recaudo total de la semana: 411 pagos, incluidos el bar, el motor web y Santiago Posada.</div></div>
+    </div>
+  </div>
+  <div class="two">
+    <div><div class="tbl"><table><thead><tr><th class="">Día</th><th class="n">Alojamiento</th><th class="n">Bar</th><th class="n">Lavandería</th><th class="n">Total recepción</th></tr></thead><tbody><tr><td class="">Lun 26</td><td class="n">$2.361.237</td><td class="n">$60.000</td><td class="n">$127.000</td><td class="n">$2.548.237</td></tr><tr><td class="">Mar 27</td><td class="n">$2.186.388</td><td class="n">$0</td><td class="n">$0</td><td class="n">$2.186.388</td></tr><tr><td class="">Mié 28</td><td class="n">$2.420.313</td><td class="n">$124.000</td><td class="n">$174.000</td><td class="n">$2.718.313</td></tr><tr><td class="">Jue 29</td><td class="n">$3.947.081</td><td class="n">$7.000</td><td class="n">$55.000</td><td class="n">$4.009.081</td></tr><tr><td class="">Vie 30</td><td class="n">$3.301.729</td><td class="n">$52.000</td><td class="n">$72.000</td><td class="n">$3.425.729</td></tr><tr><td class="">Sáb 31</td><td class="n">$7.282.534</td><td class="n">$42.000</td><td class="n">$55.000</td><td class="n">$7.379.534</td></tr><tr><td class="">Dom 1</td><td class="n">$677.135</td><td class="n">$24.000</td><td class="n">$0</td><td class="n">$701.135</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">$22.176.417</td><td class="n">$309.000</td><td class="n">$483.000</td><td class="n">$22.968.417</td></tr></tfoot></table></div></div>
+    <div>
+      <p class="chart-title">Forma de pago en recepción</p>
+      <div class="chart short" id="c-recforma"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+  </div>
+  <div class="two">
+    <div><div class="tbl"><table><thead><tr><th class="">Dónde se registró el pago</th><th class="n">Monto</th><th class="n">%</th></tr></thead><tbody><tr><td class="">Recepción</td><td class="n">$22.968.417</td><td class="n">86,6 %</td></tr><tr><td class="">Bar (KIWIROOFTOP)</td><td class="n">$1.646.000</td><td class="n">6,2 %</td></tr><tr><td class="">Motor web (pago en línea)</td><td class="n">$1.310.862</td><td class="n">4,9 %</td></tr><tr><td class="">Santiago Posada</td><td class="n">$436.728</td><td class="n">1,6 %</td></tr><tr><td class="">KIWIGUEST</td><td class="n">$148.000</td><td class="n">0,6 %</td></tr></tbody><tfoot><tr><td class="">Total recaudo</td><td class="n">$26.510.007</td><td class="n">100,0 %</td></tr></tfoot></table></div></div>
+    <div><div class="tbl"><table><thead><tr><th class="">Forma de pago (recepción)</th><th class="n">Monto</th><th class="n">%</th></tr></thead><tbody><tr><td class="">Tarjeta de crédito</td><td class="n">$15.717.255</td><td class="n">68,4 %</td></tr><tr><td class="">Tarjeta débito</td><td class="n">$4.696.472</td><td class="n">20,4 %</td></tr><tr><td class="">Efectivo</td><td class="n">$1.400.507</td><td class="n">6,1 %</td></tr><tr><td class="">AIRBNB</td><td class="n">$822.076</td><td class="n">3,6 %</td></tr><tr><td class="">Bold</td><td class="n">$332.107</td><td class="n">1,4 %</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">$22.968.417</td><td class="n">100,0 %</td></tr></tfoot></table></div></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Usuario de Lobby</th><th class="n">Monto</th></tr></thead><tbody><tr><td class="">VICTORCORTES</td><td class="n">$9.300.994</td></tr><tr><td class="">Camilo Giraldo</td><td class="n">$8.519.551</td></tr><tr><td class="">CLARA RECEPCION</td><td class="n">$2.790.125</td></tr><tr><td class="">Dulce</td><td class="n">$1.701.043</td></tr><tr><td class="">Carlos Alberto Moreno</td><td class="n">$580.504</td></tr><tr><td class="">CAMILA VEGA RECEPCION</td><td class="n">$76.200</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">$22.968.417</td></tr></tfoot></table></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>El sábado concentra el cobro.</b> El sábado 31 se cobraron $7,5 M, el 28 % de la semana: es el día de cuadre de caja más crítico.</li></ul></div>
+</section>
+
+<!-- 5 -->
+<section>
+  <div class="h2row"><h2><span class="num">5</span> Ventas de bar (A&amp;B)</h2><span class="tag">Cobros registrados en Lobby</span></div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Venta de bar por día</p>
+      <div class="chart" id="c-bardia"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">$2.053.000</div><div class="s">192 productos cobrados.</div></div>
+      <div class="fact k"><div class="v">$1.646.000</div><div class="s">Cobrado en el bar (usuario KIWIROOFTOP).</div></div>
+      <div class="fact"><div class="v">$407.000</div><div class="s">Bebidas cobradas en recepción y KIWIGUEST, la mayoría al hacer check-out.</div></div>
+      <div class="fact"><div class="v">105 cortesías</div><div class="s">Productos registrados con valor $0.</div></div>
+    </div>
+  </div>
+  <div class="two">
+    <div><div class="tbl"><table><thead><tr><th class="">Día</th><th class="n">Venta</th></tr></thead><tbody><tr><td class="">Lun 26</td><td class="n">$92.000</td></tr><tr><td class="">Mar 27</td><td class="n">$80.000</td></tr><tr><td class="">Mié 28</td><td class="n">$514.000</td></tr><tr><td class="">Jue 29</td><td class="n">$281.000</td></tr><tr><td class="">Vie 30</td><td class="n">$502.000</td></tr><tr><td class="">Sáb 31</td><td class="n">$178.000</td></tr><tr><td class="">Dom 1</td><td class="n">$406.000</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">$2.053.000</td></tr></tfoot></table></div></div>
+    <div>
+      <p class="chart-title">Venta por categoría</p>
+      <div class="chart short" id="c-barcat"><div class="fallback">Cargando gráfica…</div></div>
+      <div class="tbl"><table><thead><tr><th class="">Categoría</th><th class="n">Venta</th><th class="n">%</th></tr></thead><tbody><tr><td class="">Cerveza</td><td class="n">$1.668.000</td><td class="n">81,2 %</td></tr><tr><td class="">Cócteles y licor</td><td class="n">$169.000</td><td class="n">8,2 %</td></tr><tr><td class="">Sin alcohol</td><td class="n">$136.000</td><td class="n">6,6 %</td></tr><tr><td class="">Tabaco</td><td class="n">$80.000</td><td class="n">3,9 %</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">$2.053.000</td><td class="n">100,0 %</td></tr></tfoot></table></div>
+    </div>
+  </div>
+  <div class="two">
+    <div><div class="tbl"><table><thead><tr><th class="">Producto</th><th class="n">Unidades</th><th class="n">Venta</th><th class="n">%</th></tr></thead><tbody><tr><td class="">Águila</td><td class="n">59</td><td class="n">$590.000</td><td class="n">28,7 %</td></tr><tr><td class="">Pilsen</td><td class="n">47</td><td class="n">$470.000</td><td class="n">22,9 %</td></tr><tr><td class="">Póker</td><td class="n">31</td><td class="n">$310.000</td><td class="n">15,1 %</td></tr><tr><td class="">Corona</td><td class="n">17</td><td class="n">$204.000</td><td class="n">9,9 %</td></tr><tr><td class="">Club Colombia</td><td class="n">7</td><td class="n">$84.000</td><td class="n">4,1 %</td></tr><tr><td class="">Cuba libre</td><td class="n">3</td><td class="n">$66.000</td><td class="n">3,2 %</td></tr><tr><td class="">Marlboro Red</td><td class="n">3</td><td class="n">$60.000</td><td class="n">2,9 %</td></tr><tr><td class="">Gin soda</td><td class="n">1</td><td class="n">$30.000</td><td class="n">1,5 %</td></tr><tr><td class="">Ron Kiwi</td><td class="n">1</td><td class="n">$30.000</td><td class="n">1,5 %</td></tr><tr><td class="">Margarita</td><td class="n">1</td><td class="n">$30.000</td><td class="n">1,5 %</td></tr><tr><td class="">Agua grande</td><td class="n">4</td><td class="n">$28.000</td><td class="n">1,4 %</td></tr><tr><td class="">Red Bull</td><td class="n">2</td><td class="n">$22.000</td><td class="n">1,1 %</td></tr><tr><td class="">Coca-Cola</td><td class="n">3</td><td class="n">$21.000</td><td class="n">1,0 %</td></tr><tr><td class="">Gatorade</td><td class="n">3</td><td class="n">$21.000</td><td class="n">1,0 %</td></tr><tr><td class="">Bolsas de nicotina</td><td class="n">1</td><td class="n">$20.000</td><td class="n">1,0 %</td></tr><tr><td class="">Soda</td><td class="n">3</td><td class="n">$18.000</td><td class="n">0,9 %</td></tr><tr><td class="">Coca-Cola Light</td><td class="n">2</td><td class="n">$14.000</td><td class="n">0,7 %</td></tr><tr><td class="">Mestiza (botella)</td><td class="n">1</td><td class="n">$13.000</td><td class="n">0,6 %</td></tr><tr><td class="">Agua pequeña</td><td class="n">2</td><td class="n">$12.000</td><td class="n">0,6 %</td></tr><tr><td class="">Cerveza (pago pendiente del viernes)</td><td class="n">1</td><td class="n">$10.000</td><td class="n">0,5 %</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">192</td><td class="n">$2.053.000</td><td class="n">100,0 %</td></tr></tfoot></table></div></div>
+    <div><div class="tbl"><table><thead><tr><th class="">Cortesías registradas (valor $0)</th><th class="n">Unidades</th></tr></thead><tbody><tr><td class="">Cerveza (Águila, Póker, Pilsen)</td><td class="n">82</td></tr><tr><td class="">Agua (incluye 8 de bienvenida en check-in)</td><td class="n">19</td></tr><tr><td class="">Cócteles y licor (Gin soda, Cuba libre, Ron Kiwi)</td><td class="n">4</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">105</td></tr></tfoot></table></div></div>
+  </div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>El bar es cerveza.</b> La cerveza fue el 81 % de la venta; cócteles y licor, apenas el 8 %.</li><li><b>El bar equivale al 11 % del alojamiento.</b> Facturó el equivalente al 11 % del ingreso de alojamiento de la semana, unos $6.800 por huésped-noche.</li></ul></div>
+</section>
+
+<!-- 6 -->
+<section>
+  <div class="h2row"><h2><span class="num">6</span> Cierre de octubre 2026</h2><span class="tag">Mes completo · base 48</span></div>
+  <div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi" style="border-bottom:none"><div class="l">Ocupación</div><div class="v o">58,0 %</div><div class="s">863 / 1.488 noches</div></div>
+    <div class="kpi" style="border-bottom:none"><div class="l">Ingreso alojamiento</div><div class="v">$74,64 M</div><div class="s">$74.635.606 · estimado de Lobby</div></div>
+    <div class="kpi" style="border-bottom:none"><div class="l">ADR</div><div class="v">$86.484</div><div class="s">Ingreso ÷ unidades vendidas</div></div>
+    <div class="kpi" style="border-bottom:none;border-right:none"><div class="l">RevPAR</div><div class="v">$50.158</div><div class="s">Ingreso ÷ 1.488 noches</div></div>
+  </div>
+  <div>
+    <p class="chart-title">Ocupación diaria de octubre (%). En naranja, los días de esta semana (26–31)</p>
+    <div class="chart tall" id="c-oct"><div class="fallback">Cargando gráfica…</div></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Semana de octubre</th><th class="n">Unidades vendidas</th><th class="n">Disponibles (48/día)</th><th class="n">Ocupación</th><th class="n">Ingreso Lobby</th></tr></thead><tbody><tr><td class="">1–4</td><td class="n">110</td><td class="n">192</td><td class="n">57,3 %</td><td class="n">$8.299.764</td></tr><tr><td class="">5–11</td><td class="n">281</td><td class="n">336</td><td class="n">83,6 %</td><td class="n">$25.568.215</td></tr><tr><td class="">12–18</td><td class="n">174</td><td class="n">336</td><td class="n">51,8 %</td><td class="n">$15.561.437</td></tr><tr><td class="">19–25</td><td class="n">127</td><td class="n">336</td><td class="n">37,8 %</td><td class="n">$9.495.673</td></tr><tr><td class="">26–31</td><td class="n">171</td><td class="n">288</td><td class="n">59,4 %</td><td class="n">$15.710.517</td></tr></tbody><tfoot><tr><td class="">Mes</td><td class="n">863</td><td class="n">1488</td><td class="n">58,0 %</td><td class="n">$74.635.606</td></tr></tfoot></table></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>El mejor octubre desde 2021.</b> 863 noches y 55,7 % con base 50, por encima de todos los octubres de 2022 a 2025.</li><li><b>Un mes desigual por semanas.</b> 5–11 oct llegó a 84 % y 19–25 oct cayó a 38 %: la ocupación depende de los eventos.</li></ul></div>
+</section>
+
+<!-- 6.1 -->
+<section class="goal">
+  <div class="h2row"><h2><span class="num">6.1</span> Octubre frente a la meta</h2><span class="tag">Análisis solicitado</span></div>
+  <p class="lede" style="color:var(--muted);margin:0">Meta del reporte "Proyección Octubre 2026" (corte 29 sep): <b style="color:var(--ink)">40 % de ocupación (≈617 noches de 1.550) y $67 M de ingreso de alojamiento</b>, con escenario base de 39–41 % y $64–69 M. El plan usó 50 unidades, así que aquí la ocupación se compara con base 50 y las noches en número, que no dependen de la base.</p>
+
+  <div class="verdict">
+    <div><div class="l">Volumen</div><div class="v o">139,9 %</div><div class="s">de la meta de noches: 863 vendidas frente a 617. Ocupación 55,7 % (base 50), por encima incluso del escenario optimista (45 %+).</div></div>
+    <div><div class="l">Ingreso</div><div class="v">102,2 %</div><div class="s">de la meta de $67 M con el mismo método del plan ($68,46 M). Con la estimación de Lobby: $74,64 M (111,4 %). Quedó dentro del escenario base, no del optimista.</div></div>
+    <div><div class="l">Tarifa (ADR)</div><div class="v">-26,8 %</div><div class="s">frente al ADR implícito de la meta: $79.510 contra $108.590. Por eso 40 % más de noches dejaron solo 2 % más de ingreso.</div></div>
+  </div>
+
+  <div class="tbl"><table><thead><tr><th class="">Indicador</th><th class="">Meta / plan</th><th class="n">Resultado</th><th class="n">Diferencia</th><th class="n">Cumplimiento</th><th class=""></th></tr></thead><tbody><tr><td class="">Noches vendidas</td><td class="">617 (40 % de 1.550)</td><td class="n">863</td><td class="n">+246</td><td class="n">139,9 %</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">Ocupación (base 50, igual que el plan)</td><td class="">40 % (rango 39–41 %)</td><td class="n">55,7 %</td><td class="n">+15,7 pp</td><td class="n">—</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">Ingreso alojamiento · método del plan</td><td class="">$67.000.000 (rango $64–69 M)</td><td class="n">$68.458.134</td><td class="n">+$1.458.134</td><td class="n">102,2 %</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">Ingreso alojamiento · estimado de Lobby</td><td class="">$67.000.000</td><td class="n">$74.635.606</td><td class="n">+$7.635.606</td><td class="n">111,4 %</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">ADR · método del plan</td><td class="">$108.590 (implícito: $67 M ÷ 617)</td><td class="n">$79.510</td><td class="n">−$29.080</td><td class="n">73,2 %</td><td class=""><span class="chip bad">Debajo</span></td></tr><tr><td class="">Noches de privadas</td><td class="">384 (62 % de 620)</td><td class="n">351 (56,6 %)</td><td class="n">−33</td><td class="n">91,4 %</td><td class=""><span class="chip bad">No cumplida</span></td></tr><tr><td class="">Camas-noche de dormitorio</td><td class="">233 (25 % de 930)</td><td class="n">510 (54,8 %)</td><td class="n">+277</td><td class="n">218,9 %</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">Huéspedes</td><td class="">320–350</td><td class="n">419</td><td class="n">+69 sobre el rango</td><td class="n">—</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">Reservas (titulares únicos)</td><td class="">215–230</td><td class="n">277</td><td class="n">+47 sobre el rango</td><td class="n">—</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">Huéspedes colombianos</td><td class="">18–22 %</td><td class="n">12,6 %</td><td class="n"></td><td class="n">—</td><td class=""><span class="chip mid">Debajo del rango</span></td></tr><tr><td class="">Equilibrio del mes (reporte 12–18 oct)</td><td class="">661 noches</td><td class="n">863</td><td class="n">+202</td><td class="n">130,6 %</td><td class=""><span class="chip ok">Cumplida</span></td></tr></tbody></table></div>
+
+  <div class="two">
+    <div>
+      <p class="chart-title">Ocupación por semana: rango del plan vs. real (base 50)</p>
+      <div class="chart" id="c-gw"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div>
+      <p class="chart-title">Ingreso por semana: rango del plan vs. real (método del plan)</p>
+      <div class="chart" id="c-gwi"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Semana</th><th class="n">Ocupación plan</th><th class="n">Ocupación real</th><th class="n">Ingreso plan</th><th class="n">Ingreso real</th><th class="">Ingreso vs plan</th></tr></thead><tbody><tr><td class="">1–4 oct</td><td class="n">25–30 %</td><td class="n">55,0 %</td><td class="n">$5–6 M</td><td class="n">$7,68 M</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">5–11 oct</td><td class="n">45–52 %</td><td class="n">80,3 %</td><td class="n">$18–21 M</td><td class="n">$23,79 M</td><td class=""><span class="chip ok">Cumplida</span></td></tr><tr><td class="">12–18 oct</td><td class="n">38–44 %</td><td class="n">49,7 %</td><td class="n">$14–16 M</td><td class="n">$14,19 M</td><td class=""><span class="chip mid">En el rango</span></td></tr><tr><td class="">19–25 oct</td><td class="n">30–36 %</td><td class="n">36,3 %</td><td class="n">$10,5–12,5 M</td><td class="n">$8,65 M</td><td class=""><span class="chip bad">No cumplida</span></td></tr><tr><td class="">26–31 oct</td><td class="n">40–48 %</td><td class="n">57,0 %</td><td class="n">$13–15,5 M</td><td class="n">$14,15 M</td><td class=""><span class="chip mid">En el rango</span></td></tr></tbody></table></div>
+
+  <div class="duo">
+    <div>
+      <p class="chart-title">Noches por segmento: meta del plan vs. real</p>
+      <div class="chart short" id="c-gseg"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">510 camas-noche</div><div class="s">Dormitorios: 54,8 % de ocupación (base 30 camas) contra una meta de 25 %. Fueron el 59,2 % de las noches del mes; el plan esperaba 38 %.</div></div>
+      <div class="fact k"><div class="v">351 noches</div><div class="s">Privadas: 56,6 % (base 20) contra una meta de 62 %. Faltaron 33 noches.</div></div>
+    </div>
+  </div>
+
+  <div class="two">
+    <div>
+      <h3>De dónde sale la caída del ADR</h3>
+      <div class="tbl"><table><thead><tr><th>Paso</th><th class="n">ADR</th></tr></thead><tbody>
+        <tr><td>ADR implícito de la meta ($67 M ÷ 617 noches)</td><td class="n">$108.590</td></tr>
+        <tr><td>Efecto precio: misma mezcla del plan (62 % privadas), con el ADR real de cada segmento</td><td class="n">−$11.853</td></tr>
+        <tr><td>= ADR con la mezcla del plan</td><td class="n">$96.737</td></tr>
+        <tr><td>Efecto mezcla: 59 % de las noches fueron camas de dormitorio</td><td class="n">−$17.227</td></tr>
+      </tbody><tfoot><tr><td>ADR real de octubre (método del plan)</td><td class="n">$79.510</td></tr></tfoot></table></div>
+      <p class="def" style="margin-top:8px">ADR real por segmento: privadas $127.037, dormitorios $46.800.</p>
+    </div>
+    <div>
+      <h3>Fechas prioritarias del plan</h3>
+      <div class="tbl"><table><thead><tr><th class="">Evento</th><th class="">Fechas</th><th class="">Por día</th><th class="n">Prom.</th></tr></thead><tbody><tr><td class="">Festival Altavoz</td><td class="">10–12 oct</td><td class="">94 % · 92 % · 64 %</td><td class="n">83,3 %</td></tr><tr><td class="">EFFIX</td><td class="">16–18 oct</td><td class="">52 % · 42 % · 30 %</td><td class="n">41,3 %</td></tr><tr><td class="">Autoshow / Expocar</td><td class="">23–25 oct</td><td class="">42 % · 46 % · 56 %</td><td class="n">48,0 %</td></tr><tr><td class="">Colombia Travel Expo + AMWC</td><td class="">29–31 oct</td><td class="">72 % · 82 % · 72 %</td><td class="n">75,3 %</td></tr></tbody></table></div>
+      <p class="chart-title" style="margin-top:18px">Ocupación de octubre en la historia (base 50)</p>
+      <div class="chart short" id="c-hist"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+  </div>
+
+  <div class="analysis">
+    <h3>Cómo nos fue con la meta</h3>
+    <ol>
+      <li><b>La meta de ocupación se cumplió de sobra.</b> 863 noches contra 617 (+40 %): octubre cerró en 55,7 % con base 50, el mejor octubre desde 2021 y por encima de 2022 (51,3 %). También pasó la meta revisada de 43 % (667 noches) y el equilibrio de 661 noches del reporte del 12–18 oct.</li>
+      <li><b>La meta de ingreso se cumplió, pero con poco margen.</b> Con el mismo método del plan, $68,46 M: 102 % de los $67 M y dentro del escenario base ($64–69 M). Con una ocupación de escenario optimista, el ingreso no llegó al optimista ($75–82 M). Octubre 2022 vendió menos noches (51,3 %) y facturó $81,3 M.</li>
+      <li><b>La tarifa explica la diferencia, y sobre todo por la mezcla.</b> El ADR quedó -26,8 % por debajo del implícito en la meta. De los $108.590 esperados, unos $17.227 se pierden porque el mes se llenó con camas de dormitorio, y unos $11.853 porque cada segmento se vendió más barato de lo que suponía la meta.</li>
+      <li><b>El plan acertó en que el mes se jugaba en dormitorios, pero no en cuánto.</b> Se pedía llevar dormitorios a 25 % y quedaron en 54,8 %: más del doble de la meta. Las privadas, que se daban por seguras (62 %), quedaron en 56,6 % y faltaron 33 noches. Ahí está la parte del ingreso que no apareció: las privadas venden a unas 2,7 veces el ADR de una cama.</li>
+      <li><b>Las semanas con evento fuerte rindieron; las de feria comercial, no.</b> Las cinco semanas superaron el rango de ocupación del plan. 5–11 oct (receso + Altavoz) llegó a 80 % y dejó $23,79 M. En ingreso, 19–25 oct fue la única semana bajo el rango del plan. EFFIX (41 %) y Expocar (48 %) no generaron la demanda que se esperaba; Altavoz (83 %) y Travel Expo + AMWC (75 %) sí.</li>
+      <li><b>El perfil fue más internacional de lo previsto.</b> Los colombianos fueron el 12,6 % de los huéspedes, contra 18–22 % en el plan, y llegaron 419 huéspedes frente a 320–350.</li>
+    </ol>
+  </div>
+  <div class="analysis next">
+    <h3>Qué deja octubre para fijar las próximas metas</h3>
+    <ol>
+      <li><b>Meta por segmento y con ADR mínimo, no solo de ocupación.</b> Octubre muestra que la ocupación se puede superar sin que el ingreso acompañe. La meta de noviembre debería fijar noches de privadas y un piso de ADR por segmento, además del total.</li>
+      <li><b>Las privadas son el frente de ingreso.</b> Cada noche de privada que faltó equivale a casi 3 camas de dormitorio. Las 33 noches que faltaron valen unos $4,2 M al ADR real de privadas.</li>
+      <li><b>Separar fechas con evento real de ferias comerciales.</b> Festivales y receso llenaron; EFFIX y Expocar no. Conviene proteger precio solo en las primeras.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 7 -->
+<section>
+  <div class="h2row"><h2><span class="num">7</span> Noviembre en libros (On The Books)</h2><span class="tag">Corte 2 nov · base 48</span></div>
+  <div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi" style="border-bottom:none"><div class="l">Ocupación en libros</div><div class="v o">21,8 %</div><div class="s">314 / 1.440 noches</div></div>
+    <div class="kpi" style="border-bottom:none"><div class="l">Ingreso en libros</div><div class="v">$37,20 M</div><div class="s">1–2 nov $5.068.594 + reservado $32.131.571</div></div>
+    <div class="kpi" style="border-bottom:none"><div class="l">ADR en libros</div><div class="v">$118.472</div><div class="s">Ingreso ÷ unidades</div></div>
+    <div class="kpi" style="border-bottom:none;border-right:none"><div class="l">RevPAR en libros</div><div class="v">$25.833</div><div class="s">Ingreso ÷ 1.440 noches</div></div>
+  </div>
+  <div>
+    <p class="chart-title">Ocupación diaria reservada en noviembre (%). En negro, 1 y 2 nov (ya ocurridos)</p>
+    <div class="chart tall" id="c-nov"><div class="fallback">Cargando gráfica…</div></div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Semana de noviembre</th><th class="n">Unidades en libros</th><th class="n">Disponibles (48/día)</th><th class="n">Ocupación</th></tr></thead><tbody><tr><td class="">1</td><td class="n">36</td><td class="n">48</td><td class="n">75,0 %</td></tr><tr><td class="">2–8</td><td class="n">80</td><td class="n">336</td><td class="n">23,8 %</td></tr><tr><td class="">9–15</td><td class="n">50</td><td class="n">336</td><td class="n">14,9 %</td></tr><tr><td class="">16–22</td><td class="n">63</td><td class="n">336</td><td class="n">18,8 %</td></tr><tr><td class="">23–29</td><td class="n">79</td><td class="n">336</td><td class="n">23,5 %</td></tr><tr><td class="">30</td><td class="n">6</td><td class="n">48</td><td class="n">12,5 %</td></tr></tbody><tfoot><tr><td class="">Mes</td><td class="n">314</td><td class="n">1440</td><td class="n">21,8 %</td></tr></tfoot></table></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>Arranque fuerte.</b> Noviembre tiene 3 veces más noches reservadas que 2024 y 2025 al mismo corte.</li><li><b>9–15 nov es la semana más floja.</b> Tiene solo 14,9 % pese al puente y al concierto de Juanes: es la semana a empujar primero.</li></ul></div>
+</section>
+
+
+<section class="goal">
+  <div class="h2row"><h2><span class="num">7.1</span> Proyección de noviembre: tres escenarios</h2><span class="tag">Corte 2 nov · base 48 · 1.440 noches</span></div>
+  <p class="block-sub" style="max-width:80ch">Cada escenario parte de lo que ya está en Lobby (314 unidades, $37,20 M) y suma las reservas que faltan por entrar, día por día, con el ritmo de un mes real. Ninguna noche pasa de 48 unidades.</p>
+  <div class="scen"><div class="sc sc-negativo"><div class="l">Escenario negativo</div><div class="v">45,3 %</div><div class="s">653 / 1.440 noches · base 48 (43,5 % con base 50)</div><dl><dt>Ingreso alojamiento</dt><dd>$63,35 M</dd><dt>ADR</dt><dd>$97.085</dd><dt>RevPAR</dt><dd>$43.993</dd><dt>Noches nuevas por vender</dt><dd>359</dd><dt>Frente a octubre</dt><dd>−15,1 % en ingreso</dd></dl><p class="def">Pickup como noviembre 2025 (año débil), 8 % de lo reservado se cae, ADR de lo nuevo $80.000.</p></div><div class="sc sc-conservador"><div class="l">Escenario conservador</div><div class="v o">55,2 %</div><div class="s">795 / 1.440 noches · base 48 (53,0 % con base 50)</div><dl><dt>Ingreso alojamiento</dt><dd>$78,44 M</dd><dt>ADR</dt><dd>$98.620</dd><dt>RevPAR</dt><dd>$54.471</dd><dt>Noches nuevas por vender</dt><dd>492</dd><dt>Frente a octubre</dt><dd>+5,1 % en ingreso</dd></dl><p class="def">Pickup promedio entre noviembre 2025 y octubre 2026, 4 % de caídas, ADR de lo nuevo $86.500 (ADR de octubre).</p></div><div class="sc sc-positivo"><div class="l">Escenario positivo</div><div class="v">64,8 %</div><div class="s">933 / 1.440 noches · base 48 (62,2 % con base 50)</div><dl><dt>Ingreso alojamiento</dt><dd>$93,98 M</dd><dt>ADR</dt><dd>$100.724</dd><dt>RevPAR</dt><dd>$65.267</dd><dt>Noches nuevas por vender</dt><dd>624</dd><dt>Frente a octubre</dt><dd>+25,9 % en ingreso</dd></dl><p class="def">Pickup como octubre 2026, 2 % de caídas, ADR de lo nuevo $92.000 (ADR de la última semana de octubre).</p></div></div>
+  <p class="chart-title" style="margin-top:22px">Unidades por noche: en libros (barras) y cierre de cada escenario (líneas)</p>
+  <div class="chart tall" id="c-proj"><div class="fallback">Cargando gráfica…</div></div>
+  <h3>Por semana (unidades · ocupación base 48)</h3>
+  <div class="tbl"><table><thead><tr><th class="">Semana</th><th class="">Qué pasa</th><th class="n">En libros</th><th class="n">Negativo</th><th class="n">Conservador</th><th class="n">Positivo</th></tr></thead><tbody><tr><td class="">1–8 nov</td><td class="">Puente 2 nov · San Ignacio · Miradas · Expopet</td><td class="n">116 · 30 %</td><td class="n">192 · 50 %</td><td class="n">223 · 58 %</td><td class="n">252 · 66 %</td></tr><tr><td class="">9–15 nov</td><td class="">INMERXIA · Juanes y Jeff Mills (14) · puente 16 nov</td><td class="n">50 · 15 %</td><td class="n">136 · 40 %</td><td class="n">171 · 51 %</td><td class="n">205 · 61 %</td></tr><tr><td class="">16–22 nov</td><td class="">Festivo 16 · DanzaMed · Chayanne, Kris R, Blades, Anuel</td><td class="n">63 · 19 %</td><td class="n">148 · 44 %</td><td class="n">184 · 55 %</td><td class="n">218 · 65 %</td></tr><tr><td class="">23–30 nov</td><td class="">Thanksgiving 26 · Comic Con 27–29 · grupo 28–30</td><td class="n">85 · 22 %</td><td class="n">177 · 46 %</td><td class="n">218 · 57 %</td><td class="n">258 · 67 %</td></tr></tbody><tfoot><tr><td class="">Mes</td><td class=""></td><td class="n">314 · 22 %</td><td class="n">653 · 45 %</td><td class="n">795 · 55 %</td><td class="n">933 · 65 %</td></tr></tfoot></table></div>
+  <div class="duo" style="margin-top:22px">
+    <div>
+      <p class="chart-title">Noviembre en la historia (ocupación base 50, %) y los tres escenarios de 2026</p>
+      <div class="chart" id="c-nhist"><div class="fallback">Cargando gráfica…</div></div>
+      <p class="def">Ingreso de Lobby de cada noviembre: 2019 $42,2 M · 2021 $63,3 M · 2022 $94,1 M · 2023 $62,0 M · 2024 $94,3 M · 2025 $58,3 M. 2020 se omite (pandemia).</p>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">256 noches</div><div class="s">En libros para el 3–30 nov. Al mismo corte había 84 en 2024 y 79 en 2025. Octubre 2026 arrancó con 163 y cerró en 810.</div></div>
+      <div class="fact k"><div class="v">190 privadas · 66 camas</div><div class="s">Lo reservado es sobre todo privadas, con ADR en libros de $118.472. Unas 66 noches dependen de 3 reservas: dos estadías largas y el grupo del 28–30 nov.</div></div>
+      <div class="fact"><div class="v">12,8 a 26,2</div><div class="s">Noches nuevas por día que entraron después del día 2 en los últimos meses comparables (nov 2025 a nov 2024).</div></div>
+    </div>
+  </div>
+  <h3>Ritmo de reservas (pace) al mismo corte</h3>
+  <div class="tbl"><table><thead><tr><th class="">Mes</th><th class="n">En libros al día 2 (noches 3–fin)</th><th class="n">Cierre (mismas noches)</th><th class="n">Pickup</th><th class="n">Pickup por día</th><th class="">Ocupación final del mes</th></tr></thead><tbody><tr><td class="">Nov 2024</td><td class="n">84*</td><td class="n">817</td><td class="n">733</td><td class="n">26,2</td><td class="">58,3 % (base 50)</td></tr><tr><td class="">Nov 2025</td><td class="n">79</td><td class="n">438</td><td class="n">359</td><td class="n">12,8</td><td class="">32,8 % (base 50)</td></tr><tr><td class="">Oct 2026</td><td class="n">163</td><td class="n">810</td><td class="n">647</td><td class="n">22,3</td><td class="">55,7 % (base 50) · 58,0 % (base 48)</td></tr><tr><td class=""><b>Nov 2026</b></td><td class="n"><b>256</b></td><td class="n">—</td><td class="n">—</td><td class="n">—</td><td class="">—</td></tr></tbody></table></div>
+  <p class="def">*Cobertura 94,7 %: dos consultas de 2024 llegaron truncadas. Solo categorías vigentes (sin Dorm Roble ni Dorm Bamboo), para comparar con el inventario actual.</p>
+  <div class="two" style="margin-top:22px">
+    <div><h3>Calendario de noviembre</h3><div class="tbl"><table><thead><tr><th class="">Fecha</th><th class="">Evento</th><th class="">Lugar</th></tr></thead><tbody><tr><td class="">Lun 2 nov</td><td class="">Festivo (Todos los Santos), cierra puente</td><td class="">Nacional</td></tr><tr><td class="">27 oct – 9 nov</td><td class="">Festival San Ignacio</td><td class="">Centro</td></tr><tr><td class="">3–8 nov</td><td class="">Festival de Cine Miradas</td><td class="">Ciudad</td></tr><tr><td class="">4–5 nov</td><td class="">Territorio Aguacate</td><td class="">Plaza Mayor</td></tr><tr><td class="">6–8 nov</td><td class="">Expopet</td><td class="">Plaza Mayor</td></tr><tr><td class="">9–11 nov</td><td class="">INMERXIA (tecnología inmersiva)</td><td class="">Ciudad</td></tr><tr><td class="">Sáb 14 nov</td><td class="">Juanes (apertura DAVIarena) · Jeff Mills</td><td class="">DAVIarena · Plaza Mayor</td></tr><tr><td class="">Lun 16 nov</td><td class="">Festivo (Independencia de Cartagena), puente 14–16</td><td class="">Nacional</td></tr><tr><td class="">17–22 nov</td><td class="">DanzaMed</td><td class="">Ciudad</td></tr><tr><td class="">19–22 nov</td><td class="">Chayanne (19) · Kris R (20) · Rubén Blades (21) · Anuel AA (22)</td><td class="">Medellín</td></tr><tr><td class="">19–20 nov</td><td class="">Congreso Tejiendo Hogares</td><td class="">Medellín</td></tr><tr><td class="">Jue 26 nov</td><td class="">Thanksgiving (EE. UU.) · inicia La Plaza de El Social (hasta 12 dic)</td><td class="">—</td></tr><tr><td class="">27–29 nov</td><td class="">Comic Con y Medellín Horror Fest · Marco Antonio Solís (27, Envigado) · Beéle (28)</td><td class="">Plaza Mayor</td></tr><tr><td class="">1 dic en adelante</td><td class="">Alumbrados y Festival de Navidad · Martin Garrix (5 dic) · festivo 8 dic</td><td class="">Ciudad</td></tr></tbody></table></div></div>
+    <div>
+      <h3>Contexto de mercado</h3>
+      <div class="facts">
+        <div class="fact"><div class="v">59,0 %</div><div class="s">Ocupación hotelera de Medellín en el primer semestre de 2026 (−6,6 pp). El Poblado: 60,7 %. Alcaldía de Medellín.</div></div>
+        <div class="fact"><div class="v">−18,2 % / +17,5 %</div><div class="s">Gasto de visitantes extranjeros / nacionales en el semestre. La Alcaldía lo atribuye al dólar en $3.221 y al Mundial.</div></div>
+        <div class="fact"><div class="v">65,8 %</div><div class="s">Ocupación de agosto 2026. Entradas de extranjeros ene–ago: 1.393.228 (+3,9 %). ABC Economía.</div></div>
+        <div class="fact"><div class="v">−10,5 %</div><div class="s">Ingresos hoteleros de Antioquia ene–jul (DANE). Ocupación nacional del primer trimestre: 49,1 % (Cotelco).</div></div>
+      </div>
+    </div>
+  </div>
+  <h3>Tarifas publicadas en Lobby hoy</h3>
+  <div class="tbl"><table><thead><tr><th class="">Categoría</th><th class="n">Mar 10 nov</th><th class="n">Sáb 14 nov (puente)</th><th class="n">Sáb 21 nov</th><th class="n">Sáb 28 nov</th></tr></thead><tbody><tr><td class="">Dorm Verde / Azalea / Amapola</td><td class="n">$72.000</td><td class="n">$82.220</td><td class="n">$82.220</td><td class="n">$90.000</td></tr><tr><td class="">Dorm 11</td><td class="n">$64.000</td><td class="n">$76.000</td><td class="n">$69.350</td><td class="n">$69.350</td></tr><tr><td class="">Dorm Iris</td><td class="n">$81.000</td><td class="n">$92.664</td><td class="n">$92.664</td><td class="n">—</td></tr><tr><td class="">Doble con baño privado</td><td class="n">$183.000</td><td class="n">$211.000–241.000 (mín. 2 noches)</td><td class="n">—</td><td class="n">$193.000–204.000</td></tr></tbody></table></div>
+  <div class="alert"><b>Revisar en Lobby: sábado 28 de noviembre</b><p>Lobby muestra 0 disponibilidad en todas las categorías con solo 23 unidades vendidas. Parece un cierre de ventas o un bloqueo. Si nadie lo puso a propósito, esa noche no puede venderse en ningún canal, en pleno fin de semana de Comic Con y Beéle. El 29 nov solo Dorm Azalea y Dorm Verde están en 0 (el grupo); el resto está abierto. Los escenarios suponen que el 28 se puede vender.</p></div>
+  <div class="analysis" style="margin-top:22px">
+    <h3>Lectura de la proyección</h3>
+    <ol>
+      <li><b>Noviembre arranca mejor que cualquier mes reciente.</b> 256 noches en libros para el 3–30 nov: 3 veces lo de 2024 y 2025 al mismo corte, y 57 % más de lo que tenía octubre el 2 oct. Incluso en el escenario negativo el mes supera a noviembre 2025 (43,5 % contra 32,8 % con base 50).</li>
+      <li><b>El escenario conservador (55,2 %, $78,44 M) es el de referencia.</b> Supone que entran unas 18 noches nuevas por día, entre el ritmo débil de noviembre 2025 y el de octubre. Deja menos noches que octubre (863) pero más ingreso (+5,1 %), porque lo reservado trae más privadas y un ADR más alto.</li>
+      <li><b>Para el positivo hay que repetir el ritmo de octubre.</b> $93,98 M y 64,8 %, al nivel de noviembre 2024 ($94,3 M). Octubre lo logró llenando dormitorios con tarifa baja; en noviembre ese mismo volumen necesita sostener el ADR, porque en el escenario positivo el ADR de lo nuevo ya es $92.000.</li>
+      <li><b>El mercado no ayuda.</b> La ocupación hotelera de la ciudad bajó 6,6 pp en el semestre y el gasto extranjero cayó 18 %. El huésped de Casa Kiwi es sobre todo extranjero (en octubre los colombianos fueron el 13 %), así que el negativo no es un caso extremo: es el ritmo que tuvo el hostal hace un año.</li>
+      <li><b>Lo reservado ya marca dos fines de semana.</b> Las noches con más reservas son el 20–21 nov (13–14 unidades: Chayanne, Kris R, Rubén Blades) y el 28–29 nov (21–23: Comic Con, Beéle y el grupo). El puente del 14–16 nov con Juanes todavía tiene poco en libros (7–9 por noche) y depende de lo que entre en estos días. Los días flojos son lunes a miércoles durante todo el mes: aun en el conservador quedan entre 16 y 26 unidades. Ahí se decide la diferencia entre el conservador y el negativo.</li>
+      <li><b>Hay riesgo concentrado en pocas reservas.</b> Unas 66 de las 256 noches dependen de dos estadías largas y un grupo. Si una se cae, el mes pierde entre 1 y 2 pp, y por eso cada escenario descuenta un porcentaje de caídas (2–8 %).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- 8 -->
+<section>
+  <div class="h2row"><h2><span class="num">8</span> Extensiones en recepción (Upgrades)</h2><span class="tag">Creadas en la semana</span></div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Noches extendidas por reserva</p>
+      <div class="chart tall" id="c-ext"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div class="facts">
+      <div class="fact o"><div class="v">13 reservas</div><div class="s">28 noches adicionales.</div></div>
+      <div class="fact k"><div class="v">$2.110.766</div><div class="s">Valor en Lobby de las extensiones.</div></div>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">Huésped</th><th class="">Reserva</th><th class="">Venía de</th><th class="">Del</th><th class="">Al</th><th class="n">Noches</th><th class="n">Valor Lobby</th></tr></thead><tbody><tr><td class="">Julie Mabboux</td><td class="">22388273</td><td class="">Hostelworld</td><td class="">26 oct</td><td class="">27 oct</td><td class="n">1</td><td class="n">$46.200</td></tr><tr><td class="">Aviv Liz Adler</td><td class="">22399586</td><td class="">Booking.com</td><td class="">27 oct</td><td class="">28 oct</td><td class="n">1</td><td class="n">$42.000</td></tr><tr><td class="">Maya Cohen</td><td class="">22399603</td><td class="">Booking.com</td><td class="">27 oct</td><td class="">28 oct</td><td class="n">1</td><td class="n">$42.000</td></tr><tr><td class="">Matthew Galema</td><td class="">22402369</td><td class="">Hostelworld</td><td class="">27 oct</td><td class="">30 oct</td><td class="n">3</td><td class="n">$571.090</td></tr><tr><td class="">Nasty Ortiz</td><td class="">22403914</td><td class="">Booking.com</td><td class="">27 oct</td><td class="">31 oct</td><td class="n">4</td><td class="n">$219.922</td></tr><tr><td class="">Daniel Harry Mott</td><td class="">22413647</td><td class="">Hostelworld</td><td class="">28 oct</td><td class="">31 oct</td><td class="n">3</td><td class="n">$213.000</td></tr><tr><td class="">Shanine Elion Gambou</td><td class="">22408911</td><td class="">Hostelworld</td><td class="">28 oct</td><td class="">30 oct</td><td class="n">2</td><td class="n">$207.636</td></tr><tr><td class="">Shanine Elion Gambou</td><td class="">22439525</td><td class="">Recepción</td><td class="">30 oct</td><td class="">31 oct</td><td class="n">1</td><td class="n">$109.800</td></tr><tr><td class="">Maelys Ewanje Paillard</td><td class="">22441526</td><td class="">Hostelworld</td><td class="">30 oct</td><td class="">1 nov</td><td class="n">2</td><td class="n">$105.600</td></tr><tr><td class="">Eva Marie Klaser</td><td class="">22442028</td><td class="">Hostelworld</td><td class="">30 oct</td><td class="">2 nov</td><td class="n">3</td><td class="n">$148.800</td></tr><tr><td class="">Raphael Leauthaud</td><td class="">22442033</td><td class="">Hostelworld</td><td class="">30 oct</td><td class="">2 nov</td><td class="n">3</td><td class="n">$148.800</td></tr><tr><td class="">Yakov Picazo Muller</td><td class="">22441541</td><td class="">Hostelworld</td><td class="">30 oct</td><td class="">2 nov</td><td class="n">3</td><td class="n">$193.800</td></tr><tr><td class="">Anyelo Hinestroza</td><td class="">22465277</td><td class="">Booking.com</td><td class="">1 nov</td><td class="">2 nov</td><td class="n">1</td><td class="n">$62.118</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="">13 reservas</td><td class=""></td><td class=""></td><td class=""></td><td class="n">28</td><td class="n">$2.110.766</td></tr></tfoot></table></div>
+  <h3>Otras continuaciones (no hechas en recepción)</h3>
+  <div class="tbl"><table><thead><tr><th class="">Huésped</th><th class="">Canal nueva reserva</th><th class="">Venía de</th><th class="">Del</th><th class="">Al</th><th class="n">Noches</th><th class="n">Valor Lobby</th></tr></thead><tbody><tr><td class="">John K Kameshraj</td><td class="">Santiago Posada</td><td class="">Hostelworld</td><td class="">31 oct</td><td class="">1 dic</td><td class="n">31</td><td class="n">$2.056.000</td></tr><tr><td class="">Manuel Kunst</td><td class="">Hostelworld</td><td class="">Hostelworld</td><td class="">26 oct</td><td class="">27 oct</td><td class="n">1</td><td class="n">$29.260</td></tr><tr><td class="">Nasty Ortiz</td><td class="">Booking.com</td><td class="">Booking.com</td><td class="">26 oct</td><td class="">27 oct</td><td class="n">1</td><td class="n">$47.713</td></tr><tr><td class="">John K Kameshraj</td><td class="">Hostelworld</td><td class="">Hostelworld</td><td class="">28 oct</td><td class="">31 oct</td><td class="n">3</td><td class="n">$436.728</td></tr><tr><td class="">Thomas Purnell</td><td class="">Hostelworld</td><td class="">Hostelworld</td><td class="">30 oct</td><td class="">1 nov</td><td class="n">2</td><td class="n">$215.384</td></tr><tr><td class="">Matthew Galema</td><td class="">Hostelworld</td><td class="">Recepción</td><td class="">30 oct</td><td class="">2 nov</td><td class="n">3</td><td class="n">$139.916</td></tr><tr><td class="">Madison Mckinstry</td><td class="">Hostelworld</td><td class="">Hostelworld</td><td class="">30 oct</td><td class="">3 nov</td><td class="n">4</td><td class="n">$370.568</td></tr><tr><td class="">Sander Van Rooijen</td><td class="">Hostelworld</td><td class="">Hostelworld</td><td class="">31 oct</td><td class="">2 nov</td><td class="n">2</td><td class="n">$81.396</td></tr><tr><td class="">Thomas Brousseau</td><td class="">Hostelworld</td><td class="">Hostelworld</td><td class="">31 oct</td><td class="">2 nov</td><td class="n">2</td><td class="n">$81.396</td></tr></tbody></table></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>11 % del ingreso semanal.</b> Las extensiones valen el equivalente al 11 % del ingreso de alojamiento de la semana, sin comisión.</li><li><b>Recepción las cierra.</b> 12 de las 13 extensiones se hicieron por recepción: el equipo convierte bien al huésped que ya está en casa.</li></ul></div>
+</section>
+
+
+<section>
+  <div class="h2row"><h2><span class="num">9</span> Nacionalidades</h2><span class="tag">Huéspedes con check-in · 2026, octubre y la semana</span></div>
+  <div class="kpis" style="grid-template-columns:repeat(4,minmax(0,1fr))">
+    <div class="kpi" style="border-bottom:none"><div class="l">Huéspedes 2026</div><div class="v o">3.257</div><div class="s">De 65 países · 1 ene – 1 nov · 2.141 titulares</div></div>
+    <div class="kpi" style="border-bottom:none"><div class="l">País n.º 1 del año</div><div class="v">Francia</div><div class="s">15,6 % de los huéspedes. Le siguen Alemania (10,9 %) y Colombia (9,9 %).</div></div>
+    <div class="kpi" style="border-bottom:none"><div class="l">Octubre</div><div class="v">419</div><div class="s">De 36 países. Francia 14,6 %, Colombia 12,6 %, Reino Unido 8,8 %.</div></div>
+    <div class="kpi" style="border-bottom:none;border-right:none"><div class="l">Semana 26 oct – 1 nov</div><div class="v">95</div><div class="s">De 18 países. Francia 20,0 %, Reino Unido y Colombia 14,7 % cada uno.</div></div>
+  </div>
+  <div class="duo">
+    <div>
+      <p class="chart-title">Top 10 países del año: participación en cada periodo (% de huéspedes)</p>
+      <div class="chart tall" id="c-nat"><div class="fallback">Cargando gráfica…</div></div>
+    </div>
+    <div>
+      <p class="chart-title">Por región (% de huéspedes)</p>
+      <div class="chart" id="c-natreg" style="height:220px"><div class="fallback">Cargando gráfica…</div></div>
+      <p class="def">Europa es el 57,5 % de los huéspedes del año. Colombia se muestra aparte de Latinoamérica.</p>
+    </div>
+  </div>
+  <div class="tbl"><table><thead><tr><th class="">País</th><th class="n">2026 huésp.</th><th class="n">%</th><th class="n">Noches / huésp.</th><th class="n">Oct huésp.</th><th class="n">%</th><th class="n">Semana huésp.</th><th class="n">%</th></tr></thead><tbody><tr><td class="">1. Francia</td><td class="n">508</td><td class="n">15,6 %</td><td class="n">3,0</td><td class="n">61</td><td class="n">14,6 %</td><td class="n">19</td><td class="n">20,0 %</td></tr><tr><td class="">2. Alemania</td><td class="n">355</td><td class="n">10,9 %</td><td class="n">3,6</td><td class="n">36</td><td class="n">8,6 %</td><td class="n">7</td><td class="n">7,4 %</td></tr><tr><td class="">3. Colombia</td><td class="n">324</td><td class="n">9,9 %</td><td class="n">2,8</td><td class="n">53</td><td class="n">12,6 %</td><td class="n">14</td><td class="n">14,7 %</td></tr><tr><td class="">4. Reino Unido</td><td class="n">297</td><td class="n">9,1 %</td><td class="n">3,6</td><td class="n">37</td><td class="n">8,8 %</td><td class="n">14</td><td class="n">14,7 %</td></tr><tr><td class="">5. Estados Unidos</td><td class="n">280</td><td class="n">8,6 %</td><td class="n">4,8</td><td class="n">36</td><td class="n">8,6 %</td><td class="n">5</td><td class="n">5,3 %</td></tr><tr><td class="">6. México</td><td class="n">153</td><td class="n">4,7 %</td><td class="n">3,9</td><td class="n">25</td><td class="n">6,0 %</td><td class="n">3</td><td class="n">3,2 %</td></tr><tr><td class="">7. España</td><td class="n">146</td><td class="n">4,5 %</td><td class="n">3,0</td><td class="n">6</td><td class="n">1,4 %</td><td class="n">—</td><td class="n">—</td></tr><tr><td class="">8. Países Bajos</td><td class="n">128</td><td class="n">3,9 %</td><td class="n">3,0</td><td class="n">10</td><td class="n">2,4 %</td><td class="n">1</td><td class="n">1,1 %</td></tr><tr><td class="">9. Australia</td><td class="n">106</td><td class="n">3,3 %</td><td class="n">3,8</td><td class="n">14</td><td class="n">3,3 %</td><td class="n">2</td><td class="n">2,1 %</td></tr><tr><td class="">10. Canadá</td><td class="n">102</td><td class="n">3,1 %</td><td class="n">4,9</td><td class="n">14</td><td class="n">3,3 %</td><td class="n">5</td><td class="n">5,3 %</td></tr><tr><td class="">11. Suiza</td><td class="n">93</td><td class="n">2,9 %</td><td class="n">3,3</td><td class="n">11</td><td class="n">2,6 %</td><td class="n">9</td><td class="n">9,5 %</td></tr><tr><td class="">12. Irlanda</td><td class="n">65</td><td class="n">2,0 %</td><td class="n">7,2</td><td class="n">2</td><td class="n">0,5 %</td><td class="n">—</td><td class="n">—</td></tr><tr><td class="">13. Italia</td><td class="n">62</td><td class="n">1,9 %</td><td class="n">5,8</td><td class="n">2</td><td class="n">0,5 %</td><td class="n">—</td><td class="n">—</td></tr><tr><td class="">14. Bélgica</td><td class="n">57</td><td class="n">1,8 %</td><td class="n">2,8</td><td class="n">18</td><td class="n">4,3 %</td><td class="n">1</td><td class="n">1,1 %</td></tr><tr><td class="">15. Argentina</td><td class="n">54</td><td class="n">1,7 %</td><td class="n">4,0</td><td class="n">1</td><td class="n">0,2 %</td><td class="n">—</td><td class="n">—</td></tr><tr><td class="">Otros 50 países</td><td class="n">527</td><td class="n">16,2 %</td><td class="n">3,9</td><td class="n">93</td><td class="n">22,2 %</td><td class="n">15</td><td class="n">15,8 %</td></tr></tbody><tfoot><tr><td class="">Total</td><td class="n">3.257</td><td class="n">100 %</td><td class="n">3,7</td><td class="n">419</td><td class="n">100 %</td><td class="n">95</td><td class="n">100 %</td></tr></tfoot></table></div>
+  <p class="def">Noches / huésped = noches-persona de todas sus reservas del año ÷ huéspedes. Incluye extensiones.</p>
+  <h3>Por región</h3>
+  <div class="tbl"><table><thead><tr><th class="">Región</th><th class="n">2026</th><th class="n">%</th><th class="n">Octubre</th><th class="n">%</th><th class="n">Semana</th><th class="n">%</th></tr></thead><tbody><tr><td class="">Europa</td><td class="n">1.874</td><td class="n">57,5 %</td><td class="n">200</td><td class="n">47,7 %</td><td class="n">54</td><td class="n">56,8 %</td></tr><tr><td class="">EE. UU. y Canadá</td><td class="n">382</td><td class="n">11,7 %</td><td class="n">50</td><td class="n">11,9 %</td><td class="n">10</td><td class="n">10,5 %</td></tr><tr><td class="">Colombia</td><td class="n">324</td><td class="n">9,9 %</td><td class="n">53</td><td class="n">12,6 %</td><td class="n">14</td><td class="n">14,7 %</td></tr><tr><td class="">Latinoamérica</td><td class="n">490</td><td class="n">15,0 %</td><td class="n">79</td><td class="n">18,9 %</td><td class="n">13</td><td class="n">13,7 %</td></tr><tr><td class="">Oceanía</td><td class="n">145</td><td class="n">4,5 %</td><td class="n">29</td><td class="n">6,9 %</td><td class="n">3</td><td class="n">3,2 %</td></tr><tr><td class="">Asia, Medio Oriente y África</td><td class="n">42</td><td class="n">1,3 %</td><td class="n">8</td><td class="n">1,9 %</td><td class="n">1</td><td class="n">1,1 %</td></tr></tbody></table></div>
+  <h3>2026 mes a mes</h3>
+  <p class="chart-title">Huéspedes por región según mes de llegada</p>
+  <div class="chart" id="c-natmes"><div class="fallback">Cargando gráfica…</div></div>
+  <p class="chart-title" style="margin-ntop:14px">País n.º 1 de cada mes (y los dos siguientes)</p>
+  <div class="strip strip10"><div class="cell"><span class="d">Ene</span><span class="v">Colombia</span><span class="s">456 huésp. · Francia, Alemania</span></div><div class="cell"><span class="d">Feb</span><span class="v">Francia</span><span class="s">373 huésp. · Alemania, Reino Unido</span></div><div class="cell"><span class="d">Mar</span><span class="v">Alemania</span><span class="s">488 huésp. · Reino Unido, Francia</span></div><div class="cell"><span class="d">Abr</span><span class="v">Estados Unidos</span><span class="s">243 huésp. · Alemania, Francia</span></div><div class="cell"><span class="d">May</span><span class="v">Colombia</span><span class="s">153 huésp. · Reino Unido, Estados Unidos</span></div><div class="cell"><span class="d">Jun</span><span class="v">Reino Unido</span><span class="s">217 huésp. · Francia, Alemania</span></div><div class="cell"><span class="d">Jul</span><span class="v">Estados Unidos</span><span class="s">315 huésp. · Francia, España</span></div><div class="cell"><span class="d">Ago</span><span class="v">Francia</span><span class="s">384 huésp. · Alemania, Colombia</span></div><div class="cell"><span class="d">Sep</span><span class="v">Colombia</span><span class="s">327 huésp. · Francia, Alemania</span></div><div class="cell"><span class="d">Oct</span><span class="v">Francia</span><span class="s">419 huésp. · Colombia, Reino Unido</span></div></div>
+<div class="concl"><b>Conclusiones</b><ul><li><b>Casa Kiwi es un hostal europeo.</b> Europa es el 57,5 % de los huéspedes del año, y Francia lidera en el año, en octubre y en la semana.</li><li><b>Octubre fue más latino.</b> Latinoamérica subió a 18,9 % y Europa bajó a 47,7 %, frente a 15,0 % y 57,5 % en el año.</li><li><b>Colombianos en temporada.</b> Colombia fue el país n.º 1 en enero, mayo y septiembre: el huésped nacional aparece en vacaciones y puentes.</li><li><b>Los norteamericanos se quedan más.</b> Huéspedes de EE. UU. y Canadá: unas 4,8–4,9 noches cada uno, frente a 3,7 de promedio.</li></ul></div>
+</section>
+
+<p class="foot">Casa Kiwi Hostal · Reporte semanal 26 oct – 1 nov 2026 · Corte 02/11/2026 · Fuentes: Lobby PMS (ocupación, ingresos, reservas por creación y por salida, estado de hoy) y reporte_pagos_hospedajes_2026-11-02 · Uso interno</p>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.3.1/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.3.1/umd/react-dom.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.8.1/prop-types.min.js"></script>
+<script src="https://unpkg.com/recharts@2.12.7/umd/Recharts.js"></script>
+<script>
+(function(){
+  var DATA = {"occ": [{"dia": "Lun 26", "vendidas": 19, "pct": 39.6, "adr": 75390}, {"dia": "Mar 27", "vendidas": 17, "pct": 35.4, "adr": 84315}, {"dia": "Mié 28", "vendidas": 22, "pct": 45.8, "adr": 94828}, {"dia": "Jue 29", "vendidas": 36, "pct": 75.0, "adr": 86759}, {"dia": "Vie 30", "vendidas": 41, "pct": 85.4, "adr": 97180}, {"dia": "Sáb 31", "vendidas": 36, "pct": 75.0, "adr": 101412}, {"dia": "Dom 1", "vendidas": 36, "pct": 75.0, "adr": 89860}], "flujo": [{"dia": "Lun 26", "ci": 8, "co": 17}, {"dia": "Mar 27", "ci": 10, "co": 12}, {"dia": "Mié 28", "ci": 14, "co": 9}, {"dia": "Jue 29", "ci": 17, "co": 3}, {"dia": "Vie 30", "ci": 18, "co": 13}, {"dia": "Sáb 31", "ci": 11, "co": 16}, {"dia": "Dom 1", "ci": 4, "co": 6}], "pickup": [{"canal": "Hostelworld", "reservas": 42, "ota": true}, {"canal": "Booking.com", "reservas": 33, "ota": true}, {"canal": "Recepción", "reservas": 19, "ota": false}, {"canal": "Directo / sin canal", "reservas": 3, "ota": false}, {"canal": "Motor web", "reservas": 2, "ota": false}, {"canal": "Santiago Posada", "reservas": 1, "ota": false}, {"canal": "Expedia", "reservas": 1, "ota": true}], "recdia": [{"dia": "Lun 26", "aloj": 2361237.0, "bar": 60000.0, "lav": 127000.0}, {"dia": "Mar 27", "aloj": 2186388.0, "bar": 0, "lav": 0}, {"dia": "Mié 28", "aloj": 2420313.0, "bar": 124000.0, "lav": 174000.0}, {"dia": "Jue 29", "aloj": 3947081.0, "bar": 7000.0, "lav": 55000.0}, {"dia": "Vie 30", "aloj": 3301729.0, "bar": 52000.0, "lav": 72000.0}, {"dia": "Sáb 31", "aloj": 7282534.0, "bar": 42000.0, "lav": 55000.0}, {"dia": "Dom 1", "aloj": 677135.0, "bar": 24000.0, "lav": 0}], "recforma": [{"forma": "Tarjeta de crédito", "valor": 15717255.0}, {"forma": "Tarjeta débito", "valor": 4696472.0}, {"forma": "Efectivo", "valor": 1400507.0}, {"forma": "AIRBNB", "valor": 822076.0}, {"forma": "Bold", "valor": 332107.0}], "origen": [{"origen": "Recepción", "valor": 22968417.0}, {"origen": "Bar (KIWIROOFTOP)", "valor": 1646000.0}, {"origen": "Motor web (pago en línea)", "valor": 1310862.0}, {"origen": "Santiago Posada", "valor": 436728.0}, {"origen": "KIWIGUEST", "valor": 148000.0}], "bardia": [{"dia": "Lun 26", "venta": 92000.0}, {"dia": "Mar 27", "venta": 80000.0}, {"dia": "Mié 28", "venta": 514000.0}, {"dia": "Jue 29", "venta": 281000.0}, {"dia": "Vie 30", "venta": 502000.0}, {"dia": "Sáb 31", "venta": 178000.0}, {"dia": "Dom 1", "venta": 406000.0}], "barcat": [{"cat": "Cerveza", "valor": 1668000.0}, {"cat": "Cócteles y licor", "valor": 169000.0}, {"cat": "Sin alcohol", "valor": 136000.0}, {"cat": "Tabaco", "valor": 80000.0}], "oct": [{"dia": "1", "pct": 47.9, "vendidas": 23, "semana": false}, {"dia": "2", "pct": 62.5, "vendidas": 30, "semana": false}, {"dia": "3", "pct": 64.6, "vendidas": 31, "semana": false}, {"dia": "4", "pct": 54.2, "vendidas": 26, "semana": false}, {"dia": "5", "pct": 62.5, "vendidas": 30, "semana": false}, {"dia": "6", "pct": 62.5, "vendidas": 30, "semana": false}, {"dia": "7", "pct": 70.8, "vendidas": 34, "semana": false}, {"dia": "8", "pct": 97.9, "vendidas": 47, "semana": false}, {"dia": "9", "pct": 97.9, "vendidas": 47, "semana": false}, {"dia": "10", "pct": 97.9, "vendidas": 47, "semana": false}, {"dia": "11", "pct": 95.8, "vendidas": 46, "semana": false}, {"dia": "12", "pct": 66.7, "vendidas": 32, "semana": false}, {"dia": "13", "pct": 45.8, "vendidas": 22, "semana": false}, {"dia": "14", "pct": 60.4, "vendidas": 29, "semana": false}, {"dia": "15", "pct": 60.4, "vendidas": 29, "semana": false}, {"dia": "16", "pct": 54.2, "vendidas": 26, "semana": false}, {"dia": "17", "pct": 43.8, "vendidas": 21, "semana": false}, {"dia": "18", "pct": 31.2, "vendidas": 15, "semana": false}, {"dia": "19", "pct": 27.1, "vendidas": 13, "semana": false}, {"dia": "20", "pct": 16.7, "vendidas": 8, "semana": false}, {"dia": "21", "pct": 29.2, "vendidas": 14, "semana": false}, {"dia": "22", "pct": 41.7, "vendidas": 20, "semana": false}, {"dia": "23", "pct": 43.8, "vendidas": 21, "semana": false}, {"dia": "24", "pct": 47.9, "vendidas": 23, "semana": false}, {"dia": "25", "pct": 58.3, "vendidas": 28, "semana": false}, {"dia": "26", "pct": 39.6, "vendidas": 19, "semana": true}, {"dia": "27", "pct": 35.4, "vendidas": 17, "semana": true}, {"dia": "28", "pct": 45.8, "vendidas": 22, "semana": true}, {"dia": "29", "pct": 75.0, "vendidas": 36, "semana": true}, {"dia": "30", "pct": 85.4, "vendidas": 41, "semana": true}, {"dia": "31", "pct": 75.0, "vendidas": 36, "semana": true}], "octavg": 58.0, "nov": [{"dia": "1", "pct": 75.0, "vendidas": 36, "real": true}, {"dia": "2", "pct": 45.8, "vendidas": 22, "real": true}, {"dia": "3", "pct": 27.1, "vendidas": 13, "real": false}, {"dia": "4", "pct": 27.1, "vendidas": 13, "real": false}, {"dia": "5", "pct": 14.6, "vendidas": 7, "real": false}, {"dia": "6", "pct": 18.8, "vendidas": 9, "real": false}, {"dia": "7", "pct": 16.7, "vendidas": 8, "real": false}, {"dia": "8", "pct": 16.7, "vendidas": 8, "real": false}, {"dia": "9", "pct": 8.3, "vendidas": 4, "real": false}, {"dia": "10", "pct": 12.5, "vendidas": 6, "real": false}, {"dia": "11", "pct": 12.5, "vendidas": 6, "real": false}, {"dia": "12", "pct": 16.7, "vendidas": 8, "real": false}, {"dia": "13", "pct": 16.7, "vendidas": 8, "real": false}, {"dia": "14", "pct": 18.8, "vendidas": 9, "real": false}, {"dia": "15", "pct": 18.8, "vendidas": 9, "real": false}, {"dia": "16", "pct": 14.6, "vendidas": 7, "real": false}, {"dia": "17", "pct": 10.4, "vendidas": 5, "real": false}, {"dia": "18", "pct": 16.7, "vendidas": 8, "real": false}, {"dia": "19", "pct": 14.6, "vendidas": 7, "real": false}, {"dia": "20", "pct": 27.1, "vendidas": 13, "real": false}, {"dia": "21", "pct": 29.2, "vendidas": 14, "real": false}, {"dia": "22", "pct": 18.8, "vendidas": 9, "real": false}, {"dia": "23", "pct": 14.6, "vendidas": 7, "real": false}, {"dia": "24", "pct": 14.6, "vendidas": 7, "real": false}, {"dia": "25", "pct": 12.5, "vendidas": 6, "real": false}, {"dia": "26", "pct": 14.6, "vendidas": 7, "real": false}, {"dia": "27", "pct": 16.7, "vendidas": 8, "real": false}, {"dia": "28", "pct": 47.9, "vendidas": 23, "real": false}, {"dia": "29", "pct": 43.8, "vendidas": 21, "real": false}, {"dia": "30", "pct": 12.5, "vendidas": 6, "real": false}], "ext": [{"dia": "26 oct · Julie", "noches": 1, "valor": 46200}, {"dia": "27 oct · Aviv", "noches": 1, "valor": 42000}, {"dia": "27 oct · Maya", "noches": 1, "valor": 42000}, {"dia": "27 oct · Matthew", "noches": 3, "valor": 571090}, {"dia": "27 oct · Nasty", "noches": 4, "valor": 219922}, {"dia": "28 oct · Daniel", "noches": 3, "valor": 213000}, {"dia": "28 oct · Shanine", "noches": 2, "valor": 207636}, {"dia": "30 oct · Shanine", "noches": 1, "valor": 109800}, {"dia": "30 oct · Maelys", "noches": 2, "valor": 105600}, {"dia": "30 oct · Eva", "noches": 3, "valor": 148800}, {"dia": "30 oct · Raphael", "noches": 3, "valor": 148800}, {"dia": "30 oct · Yakov", "noches": 3, "valor": 193800}, {"dia": "1 nov · Anyelo", "noches": 1, "valor": 62118}], "occavg": 61.61, "com": [{"canal": "Hostelworld", "neto": 5620845, "com": 1775004}, {"canal": "Booking.com", "neto": 12411673, "com": 2724513}, {"canal": "Recepción", "neto": 3564694, "com": 0}, {"canal": "Directo / sin canal", "neto": 126118, "com": 0}, {"canal": "Motor web", "neto": 1310861, "com": 0}, {"canal": "Santiago Posada", "neto": 2056000, "com": 0}, {"canal": "Expedia", "neto": 68376, "com": 24024}], "hist": [{"anio": "2019", "occ": 40.3, "ing": 40.2, "real": false}, {"anio": "2020", "occ": 15.4, "ing": 10.8, "real": false}, {"anio": "2021", "occ": 66.1, "ing": 61.4, "real": false}, {"anio": "2022", "occ": 51.3, "ing": 81.3, "real": false}, {"anio": "2023", "occ": 8.7, "ing": 12.5, "real": false}, {"anio": "2024", "occ": 27.0, "ing": 41.4, "real": false}, {"anio": "2025", "occ": 17.1, "ing": 29.5, "real": false}, {"anio": "2026", "occ": 55.7, "ing": 68.5, "real": true}], "gw": [{"sem": "1–4", "lo": 25, "rng": 5, "real": 55.0, "ilo": 5000000.0, "irng": 1000000.0, "ireal": 7682930}, {"sem": "5–11", "lo": 45, "rng": 7, "real": 80.3, "ilo": 18000000.0, "irng": 3000000.0, "ireal": 23785376}, {"sem": "12–18", "lo": 38, "rng": 6, "real": 49.7, "ilo": 14000000.0, "irng": 2000000.0, "ireal": 14191507}, {"sem": "19–25", "lo": 30, "rng": 6, "real": 36.3, "ilo": 10500000.0, "irng": 2000000.0, "ireal": 8648230}, {"sem": "26–31", "lo": 40, "rng": 8, "real": 57.0, "ilo": 13000000.0, "irng": 2500000.0, "ireal": 14150092}], "gseg": [{"seg": "Privadas", "meta": 384, "real": 351}, {"seg": "Dormitorios", "meta": 233, "real": 510}], "proj": [{"dia": "1", "otb": 36, "neg": 36, "con": 36, "pos": 36}, {"dia": "2", "otb": 22, "neg": 22, "con": 22, "pos": 22}, {"dia": "3", "otb": 13, "neg": 19.2, "con": 23.4, "pos": 27.2}, {"dia": "4", "otb": 13, "neg": 19.0, "con": 26.4, "pos": 33.5}, {"dia": "5", "otb": 7, "neg": 15.2, "con": 25.1, "pos": 34.9}, {"dia": "6", "otb": 9, "neg": 27.8, "con": 33.0, "pos": 38.1}, {"dia": "7", "otb": 8, "neg": 29.9, "con": 30.3, "pos": 30.6}, {"dia": "8", "otb": 8, "neg": 23.1, "con": 26.7, "pos": 30.1}, {"dia": "9", "otb": 4, "neg": 12.7, "con": 17.6, "pos": 22.4}, {"dia": "10", "otb": 6, "neg": 12.8, "con": 16.6, "pos": 20.4}, {"dia": "11", "otb": 6, "neg": 12.5, "con": 19.6, "pos": 26.6}, {"dia": "12", "otb": 8, "neg": 16.1, "con": 26.1, "pos": 35.8}, {"dia": "13", "otb": 8, "neg": 26.9, "con": 32.1, "pos": 37.1}, {"dia": "14", "otb": 9, "neg": 30.8, "con": 31.3, "pos": 31.6}, {"dia": "15", "otb": 9, "neg": 24.0, "con": 27.6, "pos": 31.1}, {"dia": "16", "otb": 7, "neg": 15.4, "con": 20.5, "pos": 25.4}, {"dia": "17", "otb": 5, "neg": 11.9, "con": 15.7, "pos": 19.4}, {"dia": "18", "otb": 8, "neg": 14.4, "con": 21.6, "pos": 28.6}, {"dia": "19", "otb": 7, "neg": 15.2, "con": 25.1, "pos": 34.9}, {"dia": "20", "otb": 13, "neg": 31.5, "con": 36.9, "pos": 42.0}, {"dia": "21", "otb": 14, "neg": 35.4, "con": 36.1, "pos": 36.5}, {"dia": "22", "otb": 9, "neg": 24.0, "con": 27.6, "pos": 31.1}, {"dia": "23", "otb": 7, "neg": 15.4, "con": 20.5, "pos": 25.4}, {"dia": "24", "otb": 7, "neg": 13.7, "con": 17.6, "pos": 21.4}, {"dia": "25", "otb": 6, "neg": 12.5, "con": 19.6, "pos": 26.6}, {"dia": "26", "otb": 7, "neg": 15.2, "con": 25.1, "pos": 34.9}, {"dia": "27", "otb": 8, "neg": 26.9, "con": 32.1, "pos": 37.1}, {"dia": "28", "otb": 23, "neg": 43.7, "con": 44.7, "pos": 45.3}, {"dia": "29", "otb": 21, "neg": 35.1, "con": 39.2, "pos": 42.8}, {"dia": "30", "otb": 6, "neg": 14.5, "con": 19.5, "pos": 24.4}], "nhist": [{"anio": "2019", "occ": 41.1, "ing": 42.2, "k": "h"}, {"anio": "2021", "occ": 73.2, "ing": 63.3, "k": "h"}, {"anio": "2022", "occ": 54.7, "ing": 94.1, "k": "h"}, {"anio": "2023", "occ": 30.0, "ing": 62.0, "k": "h"}, {"anio": "2024", "occ": 58.3, "ing": 94.3, "k": "h"}, {"anio": "2025", "occ": 32.8, "ing": 58.3, "k": "h"}, {"anio": "26 Neg", "occ": 43.5, "ing": 63.3, "k": "negativo"}, {"anio": "26 Con", "occ": 53.0, "ing": 78.4, "k": "conservador"}, {"anio": "26 Pos", "occ": 62.2, "ing": 94.0, "k": "positivo"}], "nat": [{"pais": "Francia", "anio": 15.6, "oct": 14.6, "sem": 20.0}, {"pais": "Alemania", "anio": 10.9, "oct": 8.6, "sem": 7.4}, {"pais": "Colombia", "anio": 9.9, "oct": 12.6, "sem": 14.7}, {"pais": "Reino Unido", "anio": 9.1, "oct": 8.8, "sem": 14.7}, {"pais": "Estados Unidos", "anio": 8.6, "oct": 8.6, "sem": 5.3}, {"pais": "México", "anio": 4.7, "oct": 6.0, "sem": 3.2}, {"pais": "España", "anio": 4.5, "oct": 1.4, "sem": 0.0}, {"pais": "Países Bajos", "anio": 3.9, "oct": 2.4, "sem": 1.1}, {"pais": "Australia", "anio": 3.3, "oct": 3.3, "sem": 2.1}, {"pais": "Canadá", "anio": 3.1, "oct": 3.3, "sem": 5.3}], "natreg": [{"per": "2026", "Europa": 57.5, "EE. UU. y Canadá": 11.7, "Colombia": 9.9, "Latinoamérica": 15.0, "Oceanía": 4.5, "Asia, Medio Oriente y África": 1.3}, {"per": "Octubre", "Europa": 47.7, "EE. UU. y Canadá": 11.9, "Colombia": 12.6, "Latinoamérica": 18.9, "Oceanía": 6.9, "Asia, Medio Oriente y África": 1.9}, {"per": "Semana", "Europa": 56.8, "EE. UU. y Canadá": 10.5, "Colombia": 14.7, "Latinoamérica": 13.7, "Oceanía": 3.2, "Asia, Medio Oriente y África": 1.1}], "natmes": [{"mes": "Ene", "Europa": 232, "EE. UU. y Canadá": 58, "Colombia": 89, "Latinoamérica": 60, "Oceanía": 13, "Asia, Medio Oriente y África": 4}, {"mes": "Feb", "Europa": 260, "EE. UU. y Canadá": 30, "Colombia": 18, "Latinoamérica": 51, "Oceanía": 11, "Asia, Medio Oriente y África": 3}, {"mes": "Mar", "Europa": 318, "EE. UU. y Canadá": 75, "Colombia": 13, "Latinoamérica": 67, "Oceanía": 12, "Asia, Medio Oriente y África": 3}, {"mes": "Abr", "Europa": 136, "EE. UU. y Canadá": 44, "Colombia": 18, "Latinoamérica": 35, "Oceanía": 9, "Asia, Medio Oriente y África": 1}, {"mes": "May", "Europa": 77, "EE. UU. y Canadá": 26, "Colombia": 21, "Latinoamérica": 21, "Oceanía": 5, "Asia, Medio Oriente y África": 3}, {"mes": "Jun", "Europa": 149, "EE. UU. y Canadá": 21, "Colombia": 12, "Latinoamérica": 19, "Oceanía": 13, "Asia, Medio Oriente y África": 3}, {"mes": "Jul", "Europa": 164, "EE. UU. y Canadá": 53, "Colombia": 26, "Latinoamérica": 50, "Oceanía": 18, "Asia, Medio Oriente y África": 4}, {"mes": "Ago", "Europa": 221, "EE. UU. y Canadá": 28, "Colombia": 39, "Latinoamérica": 73, "Oceanía": 17, "Asia, Medio Oriente y África": 6}, {"mes": "Sep", "Europa": 173, "EE. UU. y Canadá": 25, "Colombia": 59, "Latinoamérica": 39, "Oceanía": 20, "Asia, Medio Oriente y África": 11}, {"mes": "Oct", "Europa": 200, "EE. UU. y Canadá": 50, "Colombia": 53, "Latinoamérica": 79, "Oceanía": 29, "Asia, Medio Oriente y África": 8}], "regs": ["Europa", "EE. UU. y Canadá", "Colombia", "Latinoamérica", "Oceanía", "Asia, Medio Oriente y África"]};
+  var C = {ink:'#141210', muted:'#5F5850', orange:'#EC5A1C', yellow:'#F6BE1F', sand:'#E8E3DC', line:'#E1E1E1'};
+  function fail(msg){
+    document.querySelectorAll('.chart .fallback').forEach(function(el){ el.textContent = msg; });
+  }
+  if (!window.React || !window.ReactDOM || !window.Recharts) { fail('No se pudo cargar la librería de gráficas. Las cifras exactas están en las tablas.'); return; }
+  var h = React.createElement, R = Recharts;
+  var cop = function(n){ return '$' + Math.round(n).toLocaleString('es-CO'); };
+  var mill = function(n){ return n >= 1e6 ? '$' + (n/1e6).toFixed(1).replace('.', ',') + ' M' : '$' + Math.round(n/1000) + 'k'; };
+  var pc = function(n){ return String(n).replace('.', ',') + ' %'; };
+  var tick = {fill: C.muted, fontSize: 11, fontFamily: 'JetBrains Mono, monospace'};
+  var axis = {stroke: C.line};
+  var tip = {contentStyle:{fontFamily:'Public Sans, sans-serif', fontSize:12, border:'1px solid '+C.line, borderRadius:4}, cursor:{fill:'rgba(20,18,16,0.04)'}};
+  var legend = {wrapperStyle:{fontFamily:'Public Sans, sans-serif', fontSize:12, color:C.ink}, iconType:'square'};
+  function mount(id, el){
+    var node = document.getElementById(id); if (!node) return;
+    try { ReactDOM.createRoot(node).render(h(R.ResponsiveContainer, {width:'100%', height:'100%'}, el)); }
+    catch(e){ node.innerHTML = '<div class="fallback">Gráfica no disponible: ' + e.message + '</div>'; }
+  }
+  function grid(){ return h(R.CartesianGrid, {stroke: C.line, vertical:false}); }
+
+  // 1. Ocupación
+  mount('c-occ', h(R.ComposedChart, {data: DATA.occ, margin:{top:24,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'dia', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {yAxisId:'u', domain:[0,50], ticks:[0,10,20,30,40,48], tick:tick, axisLine:false, tickLine:false, width:32}),
+    h(R.YAxis, {yAxisId:'a', orientation:'right', domain:[0,120000], tickFormatter:function(v){return '$'+v/1000+'k';}, tick:tick, axisLine:false, tickLine:false, width:44}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n){ return n==='ADR' ? [cop(v),'ADR'] : [v+' / 48', 'Unidades vendidas']; }}, tip)),
+    h(R.Legend, legend),
+    h(R.ReferenceLine, {yAxisId:'u', y:48, stroke:C.ink, strokeDasharray:'5 4', label:{value:'Capacidad 48', position:'insideTopLeft', fill:C.muted, fontSize:10}}),
+    h(R.Bar, {yAxisId:'u', dataKey:'vendidas', name:'Unidades vendidas', fill:C.orange, maxBarSize:56},
+      h(R.LabelList, {dataKey:'pct', position:'top', formatter:pc, style:{fill:C.ink, fontSize:11, fontFamily:'JetBrains Mono, monospace', fontWeight:700}})),
+    h(R.Line, {yAxisId:'a', dataKey:'adr', name:'ADR', stroke:C.ink, strokeWidth:2, dot:{r:4, fill:C.ink}})
+  ));
+
+  // 2. Flujo
+  mount('c-flujo', h(R.BarChart, {data: DATA.flujo, margin:{top:20,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'dia', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {tick:tick, axisLine:false, tickLine:false, width:28, allowDecimals:false}),
+    h(R.Tooltip, tip), h(R.Legend, legend),
+    h(R.Bar, {dataKey:'ci', name:'Check-ins', fill:C.orange, maxBarSize:28}, h(R.LabelList, {dataKey:'ci', position:'top', style:{fill:C.ink, fontSize:11}})),
+    h(R.Bar, {dataKey:'co', name:'Check-outs', fill:C.ink, maxBarSize:28}, h(R.LabelList, {dataKey:'co', position:'top', style:{fill:C.ink, fontSize:11}}))
+  ));
+
+  // 3. Pickup
+  mount('c-pickup', h(R.BarChart, {data: DATA.pickup, layout:'vertical', margin:{top:4,right:36,left:8,bottom:0}},
+    h(R.CartesianGrid, {stroke:C.line, horizontal:false}),
+    h(R.XAxis, {type:'number', tick:tick, axisLine:axis, tickLine:false, allowDecimals:false}),
+    h(R.YAxis, {type:'category', dataKey:'canal', tick:tick, axisLine:false, tickLine:false, width:128}),
+    h(R.Tooltip, Object.assign({formatter:function(v){ return [v, 'Reservas']; }}, tip)),
+    h(R.Bar, {dataKey:'reservas', name:'Reservas', maxBarSize:22},
+      DATA.pickup.map(function(d,i){ return h(R.Cell, {key:i, fill: d.ota ? C.orange : C.yellow}); }),
+      h(R.LabelList, {dataKey:'reservas', position:'right', style:{fill:C.ink, fontSize:11, fontWeight:700}}))
+  ));
+
+  // 3.1 Comisiones
+  mount('c-com', h(R.BarChart, {data: DATA.com, layout:'vertical', margin:{top:4,right:16,left:8,bottom:0}},
+    h(R.CartesianGrid, {stroke:C.line, horizontal:false}),
+    h(R.XAxis, {type:'number', tickFormatter:mill, tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {type:'category', dataKey:'canal', tick:tick, axisLine:false, tickLine:false, width:128}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n){ return [cop(v), n]; }}, tip)), h(R.Legend, legend),
+    h(R.Bar, {dataKey:'neto', name:'Le queda a Casa Kiwi', stackId:'c', fill:C.ink, maxBarSize:22}),
+    h(R.Bar, {dataKey:'com', name:'Comisión', stackId:'c', fill:C.orange, maxBarSize:22})
+  ));
+
+  // 4. Recaudo recepción por día
+  mount('c-recdia', h(R.BarChart, {data: DATA.recdia, margin:{top:20,right:8,left:4,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'dia', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {tickFormatter:mill, tick:tick, axisLine:false, tickLine:false, width:52}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n){ return [cop(v), n]; }}, tip)), h(R.Legend, legend),
+    h(R.Bar, {dataKey:'aloj', name:'Alojamiento', stackId:'r', fill:C.orange, maxBarSize:48}),
+    h(R.Bar, {dataKey:'bar', name:'Bar', stackId:'r', fill:C.yellow, maxBarSize:48}),
+    h(R.Bar, {dataKey:'lav', name:'Lavandería', stackId:'r', fill:C.ink, maxBarSize:48})
+  ));
+  mount('c-recforma', h(R.BarChart, {data: DATA.recforma, layout:'vertical', margin:{top:4,right:64,left:8,bottom:0}},
+    h(R.XAxis, {type:'number', hide:true}),
+    h(R.YAxis, {type:'category', dataKey:'forma', tick:tick, axisLine:false, tickLine:false, width:128}),
+    h(R.Tooltip, Object.assign({formatter:function(v){ return [cop(v), 'Monto']; }}, tip)),
+    h(R.Bar, {dataKey:'valor', maxBarSize:20},
+      DATA.recforma.map(function(d,i){ return h(R.Cell, {key:i, fill: i < 2 ? C.ink : (i === 2 ? C.orange : C.yellow)}); }),
+      h(R.LabelList, {dataKey:'valor', position:'right', formatter:mill, style:{fill:C.ink, fontSize:11}}))
+  ));
+
+  // 5. Bar
+  mount('c-bardia', h(R.BarChart, {data: DATA.bardia, margin:{top:20,right:8,left:4,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'dia', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {tickFormatter:function(v){ return '$'+v/1000+'k'; }, tick:tick, axisLine:false, tickLine:false, width:52}),
+    h(R.Tooltip, Object.assign({formatter:function(v){ return [cop(v), 'Venta']; }}, tip)),
+    h(R.Bar, {dataKey:'venta', name:'Venta', fill:C.yellow, maxBarSize:56},
+      h(R.LabelList, {dataKey:'venta', position:'top', formatter:function(v){ return '$'+Math.round(v/1000)+'k'; }, style:{fill:C.ink, fontSize:11, fontWeight:700}}))
+  ));
+  var catColors = [C.orange, C.yellow, C.ink, C.sand];
+  mount('c-barcat', h(R.PieChart, null,
+    h(R.Tooltip, Object.assign({formatter:function(v,n){ return [cop(v), n]; }}, tip)),
+    h(R.Legend, Object.assign({layout:'vertical', align:'right', verticalAlign:'middle'}, legend)),
+    h(R.Pie, {data: DATA.barcat, dataKey:'valor', nameKey:'cat', innerRadius:'52%', outerRadius:'85%', stroke:'#fff', strokeWidth:2, isAnimationActive:false},
+      DATA.barcat.map(function(d,i){ return h(R.Cell, {key:i, fill: catColors[i % catColors.length]}); }))
+  ));
+
+  // 6.1 Meta de octubre
+  mount('c-gw', h(R.ComposedChart, {data: DATA.gw, margin:{top:20,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'sem', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {domain:[0,100], ticks:[0,20,40,60,80,100], tickFormatter:function(v){return v+'%';}, tick:tick, axisLine:false, tickLine:false, width:40}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n,p){ if(n==='Rango del plan') return [p.payload.lo+'–'+(p.payload.lo+p.payload.rng)+' %', n]; return [pc(v), n]; }}, tip)),
+    h(R.Legend, Object.assign({payload:[{value:'Rango del plan', type:'square', color:C.sand},{value:'Real', type:'square', color:C.orange}]}, legend)),
+    h(R.Bar, {dataKey:'lo', stackId:'p', fill:'transparent', legendType:'none', isAnimationActive:false, maxBarSize:30}),
+    h(R.Bar, {dataKey:'rng', name:'Rango del plan', stackId:'p', fill:C.sand, maxBarSize:30}),
+    h(R.Bar, {dataKey:'real', name:'Real', fill:C.orange, maxBarSize:30},
+      h(R.LabelList, {dataKey:'real', position:'top', formatter:pc, style:{fill:C.ink, fontSize:10, fontWeight:700}}))
+  ));
+  mount('c-gwi', h(R.ComposedChart, {data: DATA.gw, margin:{top:20,right:8,left:4,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'sem', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {tickFormatter:mill, tick:tick, axisLine:false, tickLine:false, width:52}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n,p){ if(n==='Rango del plan') return [mill(p.payload.ilo)+' – '+mill(p.payload.ilo+p.payload.irng), n]; return [cop(v), n]; }}, tip)),
+    h(R.Legend, Object.assign({payload:[{value:'Rango del plan', type:'square', color:C.sand},{value:'Real', type:'square', color:C.ink}]}, legend)),
+    h(R.Bar, {dataKey:'ilo', stackId:'p', fill:'transparent', legendType:'none', isAnimationActive:false, maxBarSize:30}),
+    h(R.Bar, {dataKey:'irng', name:'Rango del plan', stackId:'p', fill:C.sand, maxBarSize:30}),
+    h(R.Bar, {dataKey:'ireal', name:'Real', fill:C.ink, maxBarSize:30},
+      h(R.LabelList, {dataKey:'ireal', position:'top', formatter:mill, style:{fill:C.ink, fontSize:10, fontWeight:700}}))
+  ));
+  mount('c-gseg', h(R.BarChart, {data: DATA.gseg, layout:'vertical', margin:{top:4,right:44,left:8,bottom:0}},
+    h(R.CartesianGrid, {stroke:C.line, horizontal:false}),
+    h(R.XAxis, {type:'number', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {type:'category', dataKey:'seg', tick:tick, axisLine:false, tickLine:false, width:96}),
+    h(R.Tooltip, tip), h(R.Legend, legend),
+    h(R.Bar, {dataKey:'meta', name:'Meta del plan', fill:C.sand, maxBarSize:20}, h(R.LabelList, {dataKey:'meta', position:'right', style:{fill:C.muted, fontSize:11}})),
+    h(R.Bar, {dataKey:'real', name:'Real', fill:C.orange, maxBarSize:20}, h(R.LabelList, {dataKey:'real', position:'right', style:{fill:C.ink, fontSize:11, fontWeight:700}}))
+  ));
+  mount('c-hist', h(R.BarChart, {data: DATA.hist, margin:{top:20,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'anio', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {domain:[0,80], tickFormatter:function(v){return v+'%';}, tick:tick, axisLine:false, tickLine:false, width:40}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n,p){ return [pc(v)+' · $'+String(p.payload.ing).replace('.', ',')+' M', 'Octubre']; }}, tip)),
+    h(R.Bar, {dataKey:'occ', maxBarSize:34},
+      DATA.hist.map(function(d,i){ return h(R.Cell, {key:i, fill: d.real ? C.orange : C.sand}); }),
+      h(R.LabelList, {dataKey:'occ', position:'top', formatter:pc, style:{fill:C.ink, fontSize:10}}))
+  ));
+
+  // 7.1 Proyección
+  mount('c-proj', h(R.ComposedChart, {data: DATA.proj, margin:{top:16,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'dia', tick:tick, axisLine:axis, tickLine:false, interval:1}),
+    h(R.YAxis, {domain:[0,50], ticks:[0,12,24,36,48], tick:tick, axisLine:false, tickLine:false, width:32}),
+    h(R.Tooltip, Object.assign({labelFormatter:function(l){return l+' nov';}, formatter:function(v,n){ return [Math.round(v)+' / 48 · '+pc(Math.round(v/48*1000)/10), n]; }}, tip)),
+    h(R.Legend, legend),
+    h(R.ReferenceLine, {y:48, stroke:C.ink, strokeDasharray:'5 4', label:{value:'Capacidad 48', position:'insideTopLeft', fill:C.muted, fontSize:10}}),
+    h(R.Bar, {dataKey:'otb', name:'En libros', fill:C.sand, maxBarSize:20}),
+    h(R.Line, {dataKey:'neg', name:'Negativo', stroke:'#ABABAB', strokeWidth:2, dot:false}),
+    h(R.Line, {dataKey:'con', name:'Conservador', stroke:C.orange, strokeWidth:2.5, dot:false}),
+    h(R.Line, {dataKey:'pos', name:'Positivo', stroke:C.ink, strokeWidth:2, dot:false})
+  ));
+  var NC = {h:C.sand, negativo:'#ABABAB', conservador:C.orange, positivo:C.ink};
+  mount('c-nhist', h(R.BarChart, {data: DATA.nhist, margin:{top:20,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'anio', tick:tick, axisLine:axis, tickLine:false, interval:0}),
+    h(R.YAxis, {domain:[0,80], tickFormatter:function(v){return v+'%';}, tick:tick, axisLine:false, tickLine:false, width:40}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n,p){ return [pc(v)+' · $'+String(p.payload.ing).replace('.', ',')+' M', 'Noviembre']; }}, tip)),
+    h(R.Bar, {dataKey:'occ', maxBarSize:34},
+      DATA.nhist.map(function(d,i){ return h(R.Cell, {key:i, fill: NC[d.k]}); }),
+      h(R.LabelList, {dataKey:'occ', position:'top', formatter:pc, style:{fill:C.ink, fontSize:10}}))
+  ));
+
+  // 9. Nacionalidades
+  mount('c-nat', h(R.BarChart, {data: DATA.nat, layout:'vertical', margin:{top:4,right:16,left:8,bottom:0}},
+    h(R.CartesianGrid, {stroke:C.line, horizontal:false}),
+    h(R.XAxis, {type:'number', tickFormatter:function(v){return v+'%';}, tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {type:'category', dataKey:'pais', tick:tick, axisLine:false, tickLine:false, width:96}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n){ return [pc(v), n]; }}, tip)),
+    h(R.Legend, legend),
+    h(R.Bar, {dataKey:'anio', name:'2026', fill:C.ink, maxBarSize:9}),
+    h(R.Bar, {dataKey:'oct', name:'Octubre', fill:C.orange, maxBarSize:9}),
+    h(R.Bar, {dataKey:'sem', name:'Semana', fill:C.yellow, maxBarSize:9})
+  ));
+  var RC = [C.ink, C.orange, C.yellow, '#ABABAB', '#8C6A4F', '#D9CFC2'];
+  function regBars(stackId, pctMode){ return DATA.regs.map(function(r,i){ return h(R.Bar, {key:r, dataKey:r, name:r, stackId:stackId, fill:RC[i], maxBarSize: pctMode ? 30 : 40}); }); }
+  mount('c-natreg', h.apply(null, [R.BarChart, {data: DATA.natreg, layout:'vertical', margin:{top:4,right:8,left:8,bottom:0}},
+    h(R.XAxis, {type:'number', domain:[0,100], hide:true}),
+    h(R.YAxis, {type:'category', dataKey:'per', tick:tick, axisLine:false, tickLine:false, width:64}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n){ return [pc(v), n]; }}, tip))].concat(regBars('a', true))));
+  mount('c-natmes', h.apply(null, [R.BarChart, {data: DATA.natmes, margin:{top:8,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'mes', tick:tick, axisLine:axis, tickLine:false}),
+    h(R.YAxis, {tick:tick, axisLine:false, tickLine:false, width:36}),
+    h(R.Tooltip, tip), h(R.Legend, legend)].concat(regBars('m', false))));
+
+  // 6. Octubre
+  mount('c-oct', h(R.BarChart, {data: DATA.oct, margin:{top:20,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'dia', tick:tick, axisLine:axis, tickLine:false, interval:0}),
+    h(R.YAxis, {domain:[0,100], ticks:[0,25,50,75,100], tickFormatter:function(v){return v+'%';}, tick:tick, axisLine:false, tickLine:false, width:40}),
+    h(R.Tooltip, Object.assign({labelFormatter:function(l){ return l+' oct'; }, formatter:function(v,n,p){ return [pc(v)+' · '+p.payload.vendidas+' / 48', 'Ocupación']; }}, tip)),
+    h(R.ReferenceLine, {y: DATA.octavg, stroke:C.ink, strokeDasharray:'5 4', label:{value:'Promedio '+pc(DATA.octavg), position:'insideTopRight', fill:C.ink, fontSize:11}}),
+    h(R.Bar, {dataKey:'pct', name:'Ocupación', maxBarSize:22},
+      DATA.oct.map(function(d,i){ return h(R.Cell, {key:i, fill: d.semana ? C.orange : C.yellow}); }))
+  ));
+
+  // 7. Noviembre
+  mount('c-nov', h(R.BarChart, {data: DATA.nov, margin:{top:20,right:8,left:0,bottom:0}},
+    grid(),
+    h(R.XAxis, {dataKey:'dia', tick:tick, axisLine:axis, tickLine:false, interval:0}),
+    h(R.YAxis, {domain:[0,100], ticks:[0,25,50,75,100], tickFormatter:function(v){return v+'%';}, tick:tick, axisLine:false, tickLine:false, width:40}),
+    h(R.Tooltip, Object.assign({labelFormatter:function(l){ return l+' nov'; }, formatter:function(v,n,p){ return [pc(v)+' · '+p.payload.vendidas+' / 48', p.payload.real ? 'Ocurrido' : 'En libros']; }}, tip)),
+    h(R.Bar, {dataKey:'pct', name:'Ocupación', maxBarSize:22},
+      DATA.nov.map(function(d,i){ return h(R.Cell, {key:i, fill: d.real ? C.ink : C.yellow}); }),
+      h(R.LabelList, {dataKey:'vendidas', position:'top', style:{fill:C.muted, fontSize:9}}))
+  ));
+
+  // 8. Extensiones
+  mount('c-ext', h(R.BarChart, {data: DATA.ext, layout:'vertical', margin:{top:4,right:80,left:8,bottom:0}},
+    h(R.CartesianGrid, {stroke:C.line, horizontal:false}),
+    h(R.XAxis, {type:'number', tick:tick, axisLine:axis, tickLine:false, allowDecimals:false}),
+    h(R.YAxis, {type:'category', dataKey:'dia', tick:tick, axisLine:false, tickLine:false, width:132, interval:0}),
+    h(R.Tooltip, Object.assign({formatter:function(v,n,p){ return [v+' noches · '+cop(p.payload.valor), 'Extensión']; }}, tip)),
+    h(R.Bar, {dataKey:'noches', name:'Noches', fill:C.orange, maxBarSize:16},
+      h(R.LabelList, {dataKey:'valor', position:'right', formatter:cop, style:{fill:C.ink, fontSize:10}}))
+  ));
+})();
+</script>
+
+</body></html>
